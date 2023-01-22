@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
+
     public static final String BASKET_PAGE_PATH = "/basket/";
     public static final String LOGIN_PAGE_PATH = "/accounts/login";
     public static final String LOGIN_AND_REGISTRATION_PAGE_PATH = "/accounts/login";

@@ -103,10 +103,10 @@ public class BaseHelper {
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-//    public void waitForAlertDuration(int timeOutInSeconds) {
-//        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
-//        wait.until(ExpectedConditions.alertIsPresent());
-//    }
+    public void waitForAlertDuration(int timeOutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
 
 
 }

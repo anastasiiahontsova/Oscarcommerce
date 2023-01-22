@@ -19,9 +19,9 @@ public class LoginSteps {
     }
 
     @When("{string} and {string} for login are entered")
-    public void enterLoginCredentials(String email, String password) {
+    public void enterLoginCredentials(String email, String pwd) {
         app.getLoginHelper().enterEmail(email);
-        app.getLoginHelper().enterPassword(password);
+        app.getLoginHelper().enterPassword(pwd);
     }
 
     @And("Login button is clicked")
