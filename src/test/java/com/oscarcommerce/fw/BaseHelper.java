@@ -108,5 +108,4 @@ public class BaseHelper {
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-
 }
