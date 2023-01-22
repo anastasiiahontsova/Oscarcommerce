@@ -47,7 +47,7 @@ public class AccountHelper extends BaseHelper {
         Assert.assertEquals(actualEmail, "email@gmail.com", "The email coincides with the one in the profile");
     }
 
-  //  public String verifyDateRegistredIsCorrect() {
+    //  public String verifyDateRegistredIsCorrect() {
 //        String actualDate = webDriver.findElement(By.xpath("//*[@id='default']/div/div/div/div/table/tbody/tr[3]/td")).getText();
 //        Assert.assertEquals(actualDate, "21 Jan 2023, 9:27 p.m.", "Registered date in Profile is correct");
 //    }
@@ -62,6 +62,5 @@ public class AccountHelper extends BaseHelper {
     public void verifyLoginAndRegistrationBtnIsPresent() {
         Assert.assertTrue(elementIsPresent(By.id("login_link")));
     }
-
 
 }

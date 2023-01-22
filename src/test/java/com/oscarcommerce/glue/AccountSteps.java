@@ -43,11 +43,6 @@ public class AccountSteps {
         app.getAccountHelper().verifyUserEmailIsCorrectInProfile();
     }
 
-//    @And("Date registered is correct")
-//    public void dateRegisteredIsCorrect() {
-//        app.getAccountHelper().verifyDateRegistredIsCorrect();
-//    }
-
     @And("Delete profile button is clicked")
     public void deleteUserProfile() {
         app.getAccountHelper().deleteUserProfile();

@@ -107,4 +107,5 @@ public class BaseHelper {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
         wait.until(ExpectedConditions.alertIsPresent());
     }
+
 }

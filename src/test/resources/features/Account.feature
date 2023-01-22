@@ -1,10 +1,5 @@
 Feature: Account feature
 
-  #table xpaths and links are not good
-
-  #it looks like I always use scenario outline. Is it ok? If I only need credentials to log in as a beforestep for each scenario
-
-
 
   @wip
     @positive
