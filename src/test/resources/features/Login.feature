@@ -1,14 +1,5 @@
 Feature: Login feature
 
-  #waitForAler function does not work
-  #as a result step Login alert that fields are blank appears can not pass green
-
-  #I used to have the same steps in some features fies: Login.feature, Registration.feature, Account.feature.
-  # So the step with the same name addressed to the method in the dif feature file
-  #If I am not mistaken there is a problem with this option.
-  #So I had to create and rename the same step and implementation in all 3 feature files mentioned. Although this step has the same function.
-  #as a pre-step I would like to register a user.
-
 
   @positive
   Scenario Outline: Login with valid credentials

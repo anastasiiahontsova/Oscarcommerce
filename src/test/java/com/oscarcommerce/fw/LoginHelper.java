@@ -12,8 +12,8 @@ public class LoginHelper extends BaseHelper {
         type(By.id("id_login-username"), email);
     }
 
-    public void enterPassword(String pwd) {
-        type(By.id("id_login-password"), pwd);
+    public void enterPassword(String password) {
+        type(By.id("id_login-password"), password);
     }
 
     public void clickLoginBtn() {

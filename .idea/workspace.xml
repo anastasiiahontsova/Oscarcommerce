@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="first commit" />
+    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="add login.feature">
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Login.feature" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,6 +170,14 @@
       <option name="presentableId" value="Default" />
       <updated>1673383904888</updated>
     </task>
+    <task id="LOCAL-00001" summary="add login.feature">
+      <created>1674429786848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674429786848</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,7 +193,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="add login.feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="add login.feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
