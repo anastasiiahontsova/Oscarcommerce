@@ -1,5 +1,7 @@
 Feature: Localization feature
 
+  @wip
+  @positive
   Scenario: Changing site language
     Given Main page is opened
     When New language is selected
