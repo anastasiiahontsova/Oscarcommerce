@@ -13,6 +13,7 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("id_registration-password1"), pwd);
         type(By.id("id_registration-password2"), pwd);
     }
+
     public void enterEmail(String email) {
         type(By.id("id_registration-email"), email);
     }
@@ -39,7 +40,6 @@ public class RegistrationHelper extends BaseHelper {
     public void checkForLogOutBtn() {
         waitForElementToBeClickable(By.id("logout_link"));
     }
-
 
 }
 

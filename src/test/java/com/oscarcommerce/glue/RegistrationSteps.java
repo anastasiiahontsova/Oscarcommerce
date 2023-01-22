@@ -50,4 +50,5 @@ public class RegistrationSteps {
         app.getRegistrationHelper().enterPassword(pwd);
         app.getRegistrationHelper().confirmPassword(pwd);
     }
+
 }

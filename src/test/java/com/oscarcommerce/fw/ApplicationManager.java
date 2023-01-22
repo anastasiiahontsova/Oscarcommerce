@@ -247,5 +247,4 @@ public class ApplicationManager {
         recorder.stop();
     }
 
-
 }
