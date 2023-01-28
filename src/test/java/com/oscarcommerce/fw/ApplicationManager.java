@@ -178,7 +178,6 @@ public class ApplicationManager {
         }
         webDriver.quit();
     }
-
     public void goToMainPage() {
         webDriver.get(baseUrl);
     }

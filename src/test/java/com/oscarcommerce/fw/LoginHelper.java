@@ -40,5 +40,4 @@ public class LoginHelper extends BaseHelper {
         type(By.id("id_email"), email);
     }
 
-
 }

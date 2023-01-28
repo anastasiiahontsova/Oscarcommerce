@@ -18,7 +18,6 @@ public class BaseHelper {
     public BaseHelper(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-
     public void type(By locator, String text) {
         webDriver.findElement(locator).click();
         webDriver.findElement(locator).clear();

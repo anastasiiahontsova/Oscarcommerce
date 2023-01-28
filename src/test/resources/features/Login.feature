@@ -1,6 +1,5 @@
 Feature: Login feature
 
-
   @positive
   Scenario Outline: Login with valid credentials
     Given Login page is opened

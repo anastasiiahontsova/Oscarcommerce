@@ -12,8 +12,6 @@ public class LoginSteps {
     public LoginSteps(ApplicationManager app) {
         LoginSteps.app = app;
     }
-
-
     @Given("Login page is opened")
     public void openLoginPage() {
         app.goToLoginPage();
