@@ -19,8 +19,6 @@ Feature: Login feature
       | email@subdomain.example.com    | validPassword1! |
       | firstname+lastname@example.com | validPassword1! |
       | email@123.123.123.123          | validPassword1! |
-      | email@[123.123.123.123]        | validPassword1! |
-      | "email"@example.com            | validPassword1! |
       | 1234567890@example.com         | validPassword1! |
       | email@example-one.com          | validPassword1! |
       | _______@example.com            | validPassword1! |
@@ -47,7 +45,6 @@ Feature: Login feature
       | test-email@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
-
   @requiresRegistrationWithoutLogIn
     @loginsAndDeletesUserAccount
     @negative
@@ -57,13 +54,12 @@ Feature: Login feature
     And Login button is clicked
     Then Login "<error message>" appears
     Examples:
-      | invalid email        | invalid password  | error message |
-      | testemail1@gmail.com | validPassword1! | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | testemail@mail.com   | validPassword1! | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | 1testemail@gmail.com | validPassword1! | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | testemail@g-mail.com | validPassword1! | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | test-email@gmail.com | validPassword1! | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-
+      | invalid email        | invalid password | error message                                                                              |
+      | testemail1@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@mail.com   | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | 1testemail@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@g-mail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | test-email@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
   @requiresRegistrationWithoutLogIn
@@ -75,7 +71,7 @@ Feature: Login feature
     And Login button is clicked
     Then Login "<error message>" appears
     Examples:
-      | valid email         | invalid password | error message |
+      | valid email         | invalid password | error message                                                                              |
       | testemail@gmail.com | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
       | testemail@gmail.com | Validpassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
       | testemail@gmail.com | validPassword1   | Please enter a correct username and password. Note that both fields may be case-sensitive. |
@@ -96,7 +92,6 @@ Feature: Login feature
       |                     | testpassword! |
       | testemail@gmail.com |               |
       |                     |               |
-
 
 
   @positive

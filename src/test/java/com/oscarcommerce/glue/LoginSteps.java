@@ -78,6 +78,5 @@ public class LoginSteps {
         app.getLoginHelper().checkResetEmailSent();
     }
 
-
 }
 
