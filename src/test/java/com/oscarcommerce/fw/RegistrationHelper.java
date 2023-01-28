@@ -14,17 +14,6 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("id_registration-password2"), pwd);
     }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    public void enterEmail(String email) {
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     public void enterRegistrationEmail(String email) {
         type(By.id("id_registration-email"), email);
     }
@@ -37,31 +26,18 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("id_registration-password2"), pwd);
     }
 
-
     public void clickRegisterBtn() {
         click(By.cssSelector("button[name='registration_submit']"));
     }
-
 
     public void checkUserIsRegisteredAndLoggedIn() {
         checkForLogOutBtn();
 
     }
-
     public void checkForLogOutBtn() {
         waitForElementToBeClickable(By.id("logout_link"));
     }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     public String hasPasswordErrorMsg() {
         return hasText(By.xpath("//span[@class='error-block'][1]"));
     }

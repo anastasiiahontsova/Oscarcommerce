@@ -1,38 +1,9 @@
 Feature: Registration feature
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  #waitForAler function does not work
-  #as a result step Registration alert appears can not pass green
 
-  #I would like to create @afterstep for Registration.feature where all my created users will be deleted.
-  # So far I implemented this by adding an extra step for the positive registration scenario
-
-
-
-  @positive
-=======
   @wip
     @deletesUserAccount
     @positive
->>>>>>> Stashed changes
-=======
-  @wip
-    @deletesUserAccount
-    @positive
->>>>>>> Stashed changes
-=======
-  @wip
-    @deletesUserAccount
-    @positive
->>>>>>> Stashed changes
-=======
-  @wip
-    @deletesUserAccount
-    @positive
->>>>>>> Stashed changes
   Scenario Outline: Registration with valid credentials
     Given Login and Registration page is opened
     When "<valid email>" and "<valid password>" for registration are entered
