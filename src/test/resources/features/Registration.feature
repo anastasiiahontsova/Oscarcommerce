@@ -1,6 +1,9 @@
 Feature: Registration feature
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   #waitForAler function does not work
   #as a result step Registration alert appears can not pass green
 
@@ -10,6 +13,21 @@ Feature: Registration feature
 
 
   @positive
+=======
+  @wip
+    @deletesUserAccount
+    @positive
+>>>>>>> Stashed changes
+=======
+  @wip
+    @deletesUserAccount
+    @positive
+>>>>>>> Stashed changes
+=======
+  @wip
+    @deletesUserAccount
+    @positive
+>>>>>>> Stashed changes
 =======
   @wip
     @deletesUserAccount
