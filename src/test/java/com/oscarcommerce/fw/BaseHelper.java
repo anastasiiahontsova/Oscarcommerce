@@ -18,6 +18,12 @@ public class BaseHelper {
     public BaseHelper(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
+
+
+
+    public static final String VALID_EMAIL = "testemail@gmail.com";
+    public static final String VALID_PASSWORD = "validPassword1!";
+
     public void type(By locator, String text) {
         webDriver.findElement(locator).click();
         webDriver.findElement(locator).clear();
@@ -47,7 +53,7 @@ public class BaseHelper {
         webDriver.findElement(locator).click();
     }
 
-    public boolean hasErrorMsg() {
+    public boolean hasAlertrMsg() {
         return elementIsPresent(By.cssSelector(".alert.alert-danger"));
     }
 
@@ -106,5 +112,10 @@ public class BaseHelper {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
         wait.until(ExpectedConditions.alertIsPresent());
     }
+    public String hasText(By locator) {
+        return webDriver.findElement(locator).getText();
+    }
+
+
 
 }

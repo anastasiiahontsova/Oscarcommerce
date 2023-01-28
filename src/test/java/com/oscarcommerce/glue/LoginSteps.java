@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class LoginSteps {
     protected static ApplicationManager app;
@@ -12,15 +13,24 @@ public class LoginSteps {
     public LoginSteps(ApplicationManager app) {
         LoginSteps.app = app;
     }
-    @Given("Login page is opened")
+
+    @Given("Login and Registration page is opened")
     public void openLoginPage() {
-        app.goToLoginPage();
+        app.goToLoginAndRegistrationPage();
     }
 
-    @When("{string} and {string} for login are entered")
+    @When("User is registered without login with {string} and {string}")
+    public void registerUserWithoutLogin(String email, String pwd) {
+        app.getRegistrationHelper().enterUserRegistrationCredentials(email, pwd);
+        app.getRegistrationHelper().clickRegisterBtn();
+        app.getRegistrationHelper().logOutUser();
+        app.goToLoginAndRegistrationPage();
+    }
+
+    @And("Login {string} and {string} are entered")
     public void enterLoginCredentials(String email, String pwd) {
-        app.getLoginHelper().enterEmail(email);
-        app.getLoginHelper().enterPassword(pwd);
+        app.getLoginHelper().enterLoginEmail(email);
+        app.getLoginHelper().enterLoginPassword(pwd);
     }
 
     @And("Login button is clicked")
@@ -33,9 +43,9 @@ public class LoginSteps {
         app.getLoginHelper().checkForLogOutBtn();
     }
 
-    @Then("Login error message appears")
-    public void loginErrorMessage() {
-        app.getLoginHelper().hasErrorMsg();
+    @Then("Login {string} appears")
+    public void loginErrorMessage(String expectedText) {
+        Assert.assertEquals(app.getLoginHelper().hasLoginErrorMsg(), expectedText, "Login error message appears");
     }
 
     @Then("Login alert that fields are blank appears")
@@ -53,9 +63,9 @@ public class LoginSteps {
         app.goToPasswordResetPage();
     }
 
-    @And("{string} for reset email is entered")
-    public void enterEmail(String email) {
-        app.getLoginHelper().enterResetEmail(email);
+    @And("Valid email for reset email is entered")
+    public void enterResetEmail() {
+        app.getLoginHelper().enterResetEmail();
     }
 
     @And("Send reset email button is clicked")
@@ -67,8 +77,7 @@ public class LoginSteps {
     public void checkResetEmailIsSentToAUser() {
         app.getLoginHelper().checkResetEmailSent();
     }
+
+
 }
-
-
-
 

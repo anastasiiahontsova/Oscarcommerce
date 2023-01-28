@@ -13,15 +13,18 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("id_registration-password1"), pwd);
         type(By.id("id_registration-password2"), pwd);
     }
+
     public void enterEmail(String email) {
+
+    public void enterRegistrationEmail(String email) {
         type(By.id("id_registration-email"), email);
     }
 
-    public void enterPassword(String pwd) {
+    public void enterRegistrationPassword(String pwd) {
         type(By.id("id_registration-password1"), pwd);
     }
 
-    public void confirmPassword(String pwd) {
+    public void confirmRegistrationPassword(String pwd) {
         type(By.id("id_registration-password2"), pwd);
     }
 
@@ -41,5 +44,14 @@ public class RegistrationHelper extends BaseHelper {
     }
 
 
+    public String hasPasswordErrorMsg() {
+        return hasText(By.xpath("//span[@class='error-block'][1]"));
+    }
+
+    public void logOutUser() {
+        click(By.id("logout_link"));
+    }
 }
+
+
 

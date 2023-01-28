@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class RegistrationSteps {
     protected static ApplicationManager app;
@@ -15,7 +16,7 @@ public class RegistrationSteps {
 
     @Given("Registration page is opened")
     public void openRegistrationPage() {
-        app.goToRegistrationPage();
+        app.goToLoginAndRegistrationPage();
     }
 
     @When("{string} and {string} for registration are entered")
@@ -34,9 +35,9 @@ public class RegistrationSteps {
         app.getRegistrationHelper().checkUserIsRegisteredAndLoggedIn();
     }
 
-    @Then("Registration error message appears")
-    public void errorMessageAppears() {
-        app.getRegistrationHelper().hasErrorMsg();
+    @Then("Registration {string} appears")
+    public void registrationErrorMessageAppears(String expectedMessage) {
+        Assert.assertEquals(app.getRegistrationHelper().hasPasswordErrorMsg(), expectedMessage, "Registration error message appears" );
     }
 
     @Then("Registration alert appears")
@@ -46,8 +47,8 @@ public class RegistrationSteps {
 
     @When("Existing user's {string} and {string} for registration are entered")
     public void enterExistingUserCredentials(String email, String pwd) {
-        app.getRegistrationHelper().enterEmail(email);
-        app.getRegistrationHelper().enterPassword(pwd);
-        app.getRegistrationHelper().confirmPassword(pwd);
+        app.getRegistrationHelper().enterRegistrationEmail(email);
+        app.getRegistrationHelper().enterRegistrationPassword(pwd);
+        app.getRegistrationHelper().confirmRegistrationPassword(pwd);
     }
 }

@@ -32,6 +32,7 @@ public class ApplicationManager {
 
     public static final String PWD_RESET_PAGE_PATH = "/password-reset/";
     private static final String SCREENSHOT_FILE_NAME = "target/screenshots/$timestamp_screenshot.png";
+    private static final String ACCOUNT_PAGE_PATH = "/accounts/profile/";
 
     public static String defaultBaseURL = PropertiesLoader.loadProperty("defaultBaseURL");
     public static String defaultBrowser = PropertiesLoader.loadProperty("defaultBrowser");
@@ -178,12 +179,9 @@ public class ApplicationManager {
         }
         webDriver.quit();
     }
+
     public void goToMainPage() {
         webDriver.get(baseUrl);
-    }
-
-    public void goToLoginPage() {
-        webDriver.get(baseUrl + LOGIN_PAGE_PATH);
     }
 
     public void goToLoginAndRegistrationPage() {
@@ -194,10 +192,9 @@ public class ApplicationManager {
         webDriver.get(baseUrl + PWD_RESET_PAGE_PATH);
     }
 
-    public void goToRegistrationPage() {
-        webDriver.get(baseUrl + REGISTRATION_PAGE_PATH);
+    public void goToAccountPage() {
+        webDriver.get(baseUrl + ACCOUNT_PAGE_PATH);
     }
-
 
     public void goToBasketPage() {
         webDriver.get(baseUrl + BASKET_PAGE_PATH);
@@ -245,6 +242,7 @@ public class ApplicationManager {
     public void stopRecording() throws IOException {
         recorder.stop();
     }
+
 
 
 }

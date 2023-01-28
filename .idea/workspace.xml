@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="add login.feature">
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Login.feature" afterDir="false" />
+<<<<<<< Updated upstream
+    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="add changes to account.feature" />
+=======
+    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="add changes to account.feature">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_01_23,_01_32_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_01_23__01_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/RunTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/RunTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/RegistrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/RegistrationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/RegistrationSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/RegistrationSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Registration.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Registration.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/logback.xml" afterDir="false" />
     </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +188,60 @@
       <option name="project" value="LOCAL" />
       <updated>1674429786848</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add changes to account.feature">
+      <created>1674940889779</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674940889779</updated>
+    </task>
+<<<<<<< Updated upstream
+    <option name="localTasksCounter" value="3" />
+=======
+    <task id="LOCAL-00003" summary="add login.feature">
+      <created>1674430317149</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674430317149</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add login.feature">
+      <created>1674430532548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674430532548</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add registration.feature">
+      <created>1674430789263</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674430789263</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add account.feature">
+      <created>1674430999192</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674430999192</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add changes to account.feature">
+      <created>1674938857686</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674938857686</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add changes to account.feature">
+      <created>1674939074371</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674939074371</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,7 +258,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="add login.feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="add login.feature" />
+<<<<<<< Updated upstream
+=======
+    <MESSAGE value="add registration.feature" />
+    <MESSAGE value="add account.feature" />
+>>>>>>> Stashed changes
+    <MESSAGE value="add changes to account.feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="add changes to account.feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

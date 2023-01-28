@@ -1,5 +1,6 @@
 Feature: Registration feature
 
+<<<<<<< Updated upstream
   #waitForAler function does not work
   #as a result step Registration alert appears can not pass green
 
@@ -9,16 +10,20 @@ Feature: Registration feature
 
 
   @positive
+=======
+  @wip
+    @deletesUserAccount
+    @positive
+>>>>>>> Stashed changes
   Scenario Outline: Registration with valid credentials
-    Given Registration page is opened
+    Given Login and Registration page is opened
     When "<valid email>" and "<valid password>" for registration are entered
     And Register button is clicked
     Then User is registered
-   # And User profile is deleted
     Examples:
-      | valid email      | valid password  |
-      | email3@gmail.com | validPassword1! |
-      #| testemail@gmail.com            | validPassword1! |
+      | valid email         | valid password  |
+      #| email3@gmail.com | validPassword1! |
+      | testemail@gmail.com | validPassword1! |
       #| firstname-lastname@example.com | validPassword1! |
       #| firstname.lastname@example.com | validPassword1! |
       #| email@subdomain.example.com    | validPassword1! |
@@ -34,69 +39,77 @@ Feature: Registration feature
       #| email@example.co.jp            | validPassword1! |
       #| testemail@example.com          | validPassword1! |
 
-  @negative
-  Scenario Outline: Registration with both invalid email and password credentials
-    Given Registration page is opened
+
+  @wip
+    @negative
+  Scenario Outline: Registration with invalid credentials if error message appears
+    Given Login and Registration page is opened
     When "<invalid email>" and "<invalid password>" for registration are entered
     And Register button is clicked
-    Then Registration error message appears
+    Then Registration "<error message>" appears
     Examples:
-      | invalid email                 | invalid password |
-      | plainaddress                  | 111              |
-      | email@example                 | 111              |
-      | @example.com                  | 111              |
-      | Joe Smith <email@example.com> | 111              |
-      | email.example.com             | 111              |
-      | email@example@example.com     | 111              |
-      | .email@example.com            | 111              |
-      | email.@example.com            | 111              |
-      | email..email@example.com      | 111              |
-      | email@example.com (Joe Smith) | 111              |
-      | #@%^%#$@#$@#.com              | 111              |
-     # | email@-example.com                      | 111              |
-      | email@example.web             | 111              |
-      | email@111.222.333.44444       | 111              |
-      | email@example..com            | 111              |
-      | Abc..123@example.com          | 111              |
-     # | this\ is"really"not\allowed@example.com | 111              |
+      | invalid email            | invalid password | error message                                                                                    |
+      | email@example            | 111              | Enter a valid email address.                                                                     |
+      | .email@example.com       | 111              | Enter a valid email address.                                                                     |
+      | email.@example.com       | 111              | Enter a valid email address.                                                                     |
+      | email..email@example.com | 111              | Enter a valid email address.                                                                     |
+      | email@example.web        | 111              | This password is too short. It must contain at least 9 characters.  This password is too common. |
+      | email@111.222.333.44444  | 111              | This password is too short. It must contain at least 9 characters.  This password is too common. |
+      | Abc..123@example.com     | 111              | Enter a valid email address.                                                                     |
+
+  @wip
+    @negative
+  Scenario Outline: Registration with invalid credentials if alert appears
+    Given Login and Registration page is opened
+    When "<invalid email>" and "<invalid password>" for registration are entered
+    And Register button is clicked
+    Then Registration "<error message>" appears
+    Examples:
+      | invalid email                 | invalid password | error message |
+      | plainaddress                  | 111              | alert         |
+      | @example.com                  | 111              | alert         |
+      | Joe Smith <email@example.com> | 111              | alert         |
+      | email.example.com             | 111              | alert         |
+      | email@example@example.com     | 111              | alert         |
+      | email@example.com (Joe Smith) | 111              | alert         |
+      | #@%^%#$@#$@#.com              | 111              | alert         |
+      | email@example..com            | 111              | alert         |
 
 
   @negative
   Scenario Outline: Registration with only invalid email
-    Given Registration page is opened
-    When "<improper email>" and "<valid password>" for registration are entered
+    Given Login and Registration page is opened
+    When "<invalid email>" and "<valid password>" for registration are entered
     And Register button is clicked
-    Then Registration error message appears
+    Then Registration "<error message>" appears
     Examples:
-      | improper email | valid password  |
-      | @gmail.com     | validPassword1! |
-      | test email@    | validPassword1! |
-      | 1              | validPassword1! |
+      | invalid email | valid password  |
+      | @gmail.com    | validPassword1! |
+      | test email@   | validPassword1! |
+      | 1             | validPassword1! |
 
 
   @negative
   Scenario Outline: Registration with only invalid password
-    Given Registration page is opened
-    When "<valid email>" and "<improper password>" for registration are entered
+    Given Login and Registration page is opened
+    When "<valid email>" and "<invalid password>" for registration are entered
     And Register button is clicked
-    Then Registration error message appears
+    Then Registration "<error message>" appears
     Examples:
-      | valid email            | improper password |
-      | testemail111@gmail.com | 1                 |
-      | testemail111@gmail.com | password          |
-      | testemail111@gmail.com | PASSWORD          |
-      | testemail111@gmail.com | pass              |
-      | testemail111@gmail.com | Pass              |
-      | testemail111@gmail.com | passs1234         |
-      | testemail111@gmail.com | 12345678          |
-      | testemail111@gmail.com | password1!        |
-      | testemail111@gmail.com | PASSWORD1!        |
-      | testemail111@gmail.com | Passsword1234!    |
+      | valid email            | invalid password | error message                                                      |
+      | testemail111@gmail.com | 1                | This password is too short. It must contain at least 9 characters. |
+      | testemail111@gmail.com | password         | This password is too short. It must contain at least 9 characters. |
+      | testemail111@gmail.com | PASSWORD         | This password is too short. It must contain at least 9 characters. |
+      | testemail111@gmail.com | pass             | This password is too short. It must contain at least 9 characters. |
+      | testemail111@gmail.com | Pass             | This password is too short. It must contain at least 9 characters. |
+      | testemail111@gmail.com | 123456789        | This password is too common.                                       |
+      | testemail111@gmail.com | password1!       | This password is too common.                                       |
+      | testemail111@gmail.com | PASSWORD1!       | This password is too common.                                       |
 
 
   @negative
   Scenario Outline: Registration with blank email and/or blank password credentials
-    Given Registration page is opened
+    Given Login and Registration page is opened
     When "<blank email>" and "<blank password>" for registration are entered
     And Register button is clicked
     Then Registration alert appears
@@ -109,10 +122,10 @@ Feature: Registration feature
 
   @negative
   Scenario Outline: Existing user registration
-    Given Registration page is opened
+    Given Login and Registration page is opened
     When Existing user's "<valid email>" and "<valid password>" for registration are entered
     And Register button is clicked
-    Then Registration error message appears
+    Then Registration "<error message>" appears
     Examples:
       | valid email                    | valid password  |
       | email@gmail.com                | validPassword1! |
