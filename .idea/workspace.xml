@@ -4,24 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="add account.feature">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_01_23,_01_32_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_01_23__01_32__Changes_.xml" afterDir="false" />
+    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="h">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/RunTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/RunTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/AccountHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/AccountHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/BaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/BaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/LoginHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/LoginHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/RegistrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/RegistrationHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/AccountSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/AccountSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/LoginSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/LoginSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/RegistrationSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/RegistrationSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Account.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Account.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Login.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Registration.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Registration.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/logback.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674430999192</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add changes to account.feature">
+      <created>1674938857686</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674938857686</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add changes to account.feature">
+      <created>1674939074371</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674939074371</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +248,8 @@
     <MESSAGE value="add login.feature" />
     <MESSAGE value="add registration.feature" />
     <MESSAGE value="add account.feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="add account.feature" />
+    <MESSAGE value="add changes to account.feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="add changes to account.feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
