@@ -7,14 +7,11 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
     protected static ApplicationManager app;
-
+    String validUserEmail = "testemail@gmail.com";
+    String validUserPwd = "validPassword1!";
     public Hooks(ApplicationManager app) {
         Hooks.app = app;
     }
-
-    String validUserEmail = "testemail@gmail.com";
-    String validUserPwd = "validPassword1!";
-
 
     @Before(value = "@requiresLogin")
     public void loginUserBeforeScenario(Scenario scenario) {

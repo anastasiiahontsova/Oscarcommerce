@@ -1,7 +1,6 @@
 Feature: Account feature
 
 
-
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive

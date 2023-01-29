@@ -11,18 +11,14 @@ import java.time.Duration;
 import java.util.List;
 
 public class BaseHelper {
+    public static final String VALID_EMAIL = "testemail@gmail.com";
+    public static final String VALID_PASSWORD = "validPassword1!";
     private static final Duration FIVE_SECONDS_WAIT = Duration.ofSeconds(5);
     private static final Duration TEN_SECONDS_WAIT = Duration.ofSeconds(10);
     protected WebDriver webDriver;
-
     public BaseHelper(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-
-
-
-    public static final String VALID_EMAIL = "testemail@gmail.com";
-    public static final String VALID_PASSWORD = "validPassword1!";
 
     public void type(By locator, String text) {
         webDriver.findElement(locator).click();
@@ -112,10 +108,10 @@ public class BaseHelper {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
         wait.until(ExpectedConditions.alertIsPresent());
     }
+
     public String hasText(By locator) {
         return webDriver.findElement(locator).getText();
     }
-
 
 
 }
