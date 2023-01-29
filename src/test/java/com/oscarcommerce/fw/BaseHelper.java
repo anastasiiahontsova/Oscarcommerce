@@ -11,6 +11,8 @@ import java.time.Duration;
 import java.util.List;
 
 public class BaseHelper {
+    public static final String VALID_EMAIL = "testemail@gmail.com";
+    public static final String VALID_PASSWORD = "validPassword1!";
     private static final Duration FIVE_SECONDS_WAIT = Duration.ofSeconds(5);
     private static final Duration TEN_SECONDS_WAIT = Duration.ofSeconds(10);
     protected WebDriver webDriver;
@@ -48,7 +50,7 @@ public class BaseHelper {
         webDriver.findElement(locator).click();
     }
 
-    public boolean hasErrorMsg() {
+    public boolean hasAlertrMsg() {
         return elementIsPresent(By.cssSelector(".alert.alert-danger"));
     }
 
@@ -107,4 +109,10 @@ public class BaseHelper {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
         wait.until(ExpectedConditions.alertIsPresent());
     }
+
+    public String hasText(By locator) {
+        return webDriver.findElement(locator).getText();
+    }
+
+
 }

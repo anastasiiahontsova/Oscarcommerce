@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="add login.feature">
+    <list default="true" id="9d62406f-883b-4290-b6d5-efbcd3a24b1b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/BaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/fw/BaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/AccountSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/AccountSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/LoginSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/LoginSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/RegistrationSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/oscarcommerce/glue/RegistrationSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Account.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Account.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Registration.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Registration.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

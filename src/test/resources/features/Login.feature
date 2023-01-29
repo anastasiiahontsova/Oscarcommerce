@@ -1,90 +1,90 @@
 Feature: Login feature
 
 
-  @positive
+  @deletesUserAccount
+    @positive
   Scenario Outline: Login with valid credentials
-    Given Login page is opened
-    When "<valid email>" and "<valid password>" for login are entered
+    Given Login and Registration page is opened
+    When User is registered without login with "<valid email>" and "<valid password>"
+    And Login "<valid email>" and "<valid password>" are entered
     And Login button is clicked
     Then User is logged in
     Examples:
-      | valid email     | valid password  |
-      | email@gmail.com | validPassword1! |
-      #| email1@gmail.com               | validPassword1! |
-      #| testemail@gmail.com            | validPassword1! |
-      #| email@example.com              | validPassword1! |
-      #| firstname.lastname@example.com | validPassword1! |
-      #| email@subdomain.example.com    | validPassword1! |
-      #| firstname+lastname@example.com | validPassword1! |
-      #| email@123.123.123.123          | validPassword1! |
-      #| email@[123.123.123.123]        | validPassword1! |
-      #| "email"@example.com            | validPassword1! |
-      #| 1234567890@example.com         | validPassword1! |
-      #| email@example-one.com          | validPassword1! |
-      #| _______@example.com            | validPassword1! |
-      #| email@example.name             | validPassword1! |
-      #| email@example.museum           | validPassword1! |
-      #| email@example.co.jp            | validPassword1! |
-     # | firstname-lastname@example.com | validPassword1! |
+      | valid email                    | valid password  |
+      | email@gmail.com                | validPassword1! |
+      | email1@gmail.com               | validPassword1! |
+      | testemail@gmail.com            | validPassword1! |
+      | email@example.com              | validPassword1! |
+      | firstname.lastname@example.com | validPassword1! |
+      | email@subdomain.example.com    | validPassword1! |
+      | firstname+lastname@example.com | validPassword1! |
+      | email@123.123.123.123          | validPassword1! |
+      | 1234567890@example.com         | validPassword1! |
+      | email@example-one.com          | validPassword1! |
+      | _______@example.com            | validPassword1! |
+      | email@example.name             | validPassword1! |
+      | email@example.museum           | validPassword1! |
+      | email@example.co.jp            | validPassword1! |
+      | firstname-lastname@example.com | validPassword1! |
 
 
-  @negative
-  Scenario Outline: Login with both login and password invalid credentials
-    Given Login page is opened
-    When "<invalid email>" and "<invalid password>" for login are entered
+  @requiresRegistrationWithoutLogIn
+    @loginsAndDeletesUserAccount
+    @negative
+  Scenario Outline: Login with both invalid login and password  credentials
+    Given Login and Registration page is opened
+    When Login "<invalid email>" and "<invalid password>" are entered
     And Login button is clicked
-    Then Login error message appears
+    Then Login "<error message>" appears
     Examples:
-      | invalid email        | invalid password |
-      | testemail1@gmail.com | invalidPassword  |
-      | TESTEMAIL@GMAIL.COM  | invalidPassword  |
-      | testemail@mail.com   | invalidPassword  |
-      | Testemail@gmail.com  | invalidPassword  |
-      | .testemail@gmail.com | invalidPassword  |
-      | 1testemail@gmail.com | invalidPassword  |
-      | testemail@g-mail.com | invalidPassword  |
-      | test-email@gmail.com | invalidPassword  |
-      | testemailgmail.com   | invalidPassword  |
+      | invalid email        | invalid password | error message                                                                              |
+      | testemail1@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@mail.com   | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | 1testemail@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@g-mail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | test-email@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
-  @negative
+  @requiresRegistrationWithoutLogIn
+    @loginsAndDeletesUserAccount
+    @negative
   Scenario Outline: Login with invalid email but valid password
-    Given Login page is opened
-    When "<invalid email>" and "<valid password>" for login are entered
+    Given Login and Registration page is opened
+    When Login "<invalid email>" and "<invalid password>" are entered
     And Login button is clicked
-    Then Login error message appears
+    Then Login "<error message>" appears
     Examples:
-      | invalid email        | valid password  |
-      | testemail1@gmail.com | validPassword1! |
-      | TESTEMAIL@GMAIL.COM  | validPassword1! |
-      | testemail@mail.com   | validPassword1! |
-      | Testemail@gmail.com  | validPassword1! |
-      | .testemail@gmail.com | validPassword1! |
-      | 1testemail@gmail.com | validPassword1! |
-      | testemail@g-mail.com | validPassword1! |
-      | test-email@gmail.com | validPassword1! |
-      | testemailgmail.com   | validPassword1! |
+      | invalid email        | invalid password | error message                                                                              |
+      | testemail1@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@mail.com   | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | 1testemail@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@g-mail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | test-email@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
-  @negative
-  Scenario Outline: Login with invalid password but valid email
-    Given Login page is opened
-    When "<valid email>" and "<invalid password>" for login are entered
+  @requiresRegistrationWithoutLogIn
+    @loginsAndDeletesUserAccount
+    @negative
+  Scenario Outline: Login with valid email but invalid password
+    Given Login and Registration page is opened
+    When Login "<valid email>" and "<invalid password>" are entered
     And Login button is clicked
-    Then Login error message appears
+    Then Login "<error message>" appears
     Examples:
-      | valid email         | invalid password |
-      | testemail@gmail.com | VALIDPASSWORD1!  |
-      | testemail@gmail.com | Validpassword1!  |
-      | testemail@gmail.com | validPassword1   |
-      | testemail@gmail.com | validPassword!   |
-      | testemail@gmail.com | validPassword    |
+      | valid email         | invalid password | error message                                                                              |
+      | testemail@gmail.com | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@gmail.com | Validpassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@gmail.com | validPassword1   | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@gmail.com | validPassword!   | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | testemail@gmail.com | validPassword    | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
-  @negative
+  @requiresRegistrationWithoutLogIn
+    @loginsAndDeletesUserAccount
+    @negative
   Scenario Outline: Login with blank credentials
-    Given Login page is opened
-    When "<email>" and "<password>" for login are entered
+    Given Login and Registration page is opened
+    When Login "<email>" and "<password>" are entered
     And Login button is clicked
     Then Login alert that fields are blank appears
     Examples:
@@ -95,14 +95,10 @@ Feature: Login feature
 
 
   @positive
-  Scenario Outline: Password reset
-    Given Login page is opened
+  Scenario: Password reset
+    Given Login and Registration page is opened
     When I've forgotten my password link is clicked
     And Password reset page is opened
-    And "<valid email>" for reset email is entered
+    And Valid email for reset email is entered
     And Send reset email button is clicked
     Then Reset email is sent to a user
-    Examples:
-      | valid email     |
-      | email@gmail.com |
-
