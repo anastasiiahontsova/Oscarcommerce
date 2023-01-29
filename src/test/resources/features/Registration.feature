@@ -1,6 +1,6 @@
 Feature: Registration feature
 
-  @wip
+
     @deletesUserAccount
     @positive
   Scenario Outline: Registration with valid credentials
@@ -9,26 +9,23 @@ Feature: Registration feature
     And Register button is clicked
     Then User is registered
     Examples:
-      | valid email         | valid password  |
-      #| email3@gmail.com | validPassword1! |
-      | testemail@gmail.com | validPassword1! |
-      #| firstname-lastname@example.com | validPassword1! |
-      #| firstname.lastname@example.com | validPassword1! |
-      #| email@subdomain.example.com    | validPassword1! |
-      #| firstname+lastname@example.com | validPassword1! |
-      #| email@123.123.123.123          | validPassword1! |
-      #| email@[123.123.123.123]        | validPassword1! |
-      #| "email"@example.com            | validPassword1! |
-      #| 1234567890@example.com         | validPassword1! |
-      #| email@example-one.com          | validPassword1! |
-      #| _______@example.com            | validPassword1! |
-      #| email@example.name             | validPassword1! |
-      #| email@example.museum           | validPassword1! |
-      #| email@example.co.jp            | validPassword1! |
-      #| testemail@example.com          | validPassword1! |
+      | valid email                    | valid password  |
+      | email3@gmail.com               | validPassword1! |
+      | testemail@gmail.com            | validPassword1! |
+      | firstname-lastname@example.com | validPassword1! |
+      | firstname.lastname@example.com | validPassword1! |
+      | email@subdomain.example.com    | validPassword1! |
+      | firstname+lastname@example.com | validPassword1! |
+      | email@123.123.123.123          | validPassword1! |
+      | 1234567890@example.com         | validPassword1! |
+      | email@example-one.com          | validPassword1! |
+      | _______@example.com            | validPassword1! |
+      | email@example.name             | validPassword1! |
+      | email@example.museum           | validPassword1! |
+      | email@example.co.jp            | validPassword1! |
+      | testemail@example.com          | validPassword1! |
 
 
-  @wip
     @negative
   Scenario Outline: Registration with invalid credentials if error message appears
     Given Login and Registration page is opened
@@ -64,6 +61,7 @@ Feature: Registration feature
       | email@example..com            | 111              | alert         |
 
 
+  @wip
   @negative
   Scenario Outline: Registration with only invalid email
     Given Login and Registration page is opened
@@ -71,10 +69,10 @@ Feature: Registration feature
     And Register button is clicked
     Then Registration "<error message>" appears
     Examples:
-      | invalid email | valid password  |
-      | @gmail.com    | validPassword1! |
-      | test email@   | validPassword1! |
-      | 1             | validPassword1! |
+      | invalid email | valid password  | error message |
+      | @gmail.com    | validPassword1! | alert         |
+      | test email@   | validPassword1! | alert         |
+      | 1             | validPassword1! | alert         |
 
 
   @negative
@@ -95,27 +93,25 @@ Feature: Registration feature
       | testemail111@gmail.com | PASSWORD1!       | This password is too common.                                       |
 
 
+  @wip
   @negative
   Scenario Outline: Registration with blank email and/or blank password credentials
     Given Login and Registration page is opened
     When "<blank email>" and "<blank password>" for registration are entered
     And Register button is clicked
-    Then Registration alert appears
-    Examples:
-      | blank email            | blank password |
-      |                        |                |
-      | testemail123@gmail.com |                |
-      |                        | Password!123   |
-
-
-  @negative
-  Scenario Outline: Existing user registration
-    Given Login and Registration page is opened
-    When Existing user's "<valid email>" and "<valid password>" for registration are entered
-    And Register button is clicked
     Then Registration "<error message>" appears
     Examples:
-      | valid email                    | valid password  |
-      | email@gmail.com                | validPassword1! |
-      | firstname-lastname@example.com | validPassword1! |
-      | firstname.lastname@example.com | validPassword1! |
+      | blank email            | blank password | error message |
+      |                        |                | alert         |
+      | testemail123@gmail.com |                | alert         |
+      |                        | Password!123   | alert         |
+
+
+  @requiresRegistrationWithoutLogIn
+  @loginsAndDeletesUserAccount
+  @negative
+  Scenario: Existing user registration
+    Given Login and Registration page is opened
+    And Existing user's credentials for registration are entered
+    And Register button is clicked
+    Then Existing user registration error message appears

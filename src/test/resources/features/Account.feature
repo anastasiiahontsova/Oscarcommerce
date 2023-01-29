@@ -1,10 +1,9 @@
 Feature: Account feature
 
 
-
   @requiresRegistrationAndLogin
-    @deletesUserAccount
-    @positive
+  @deletesUserAccount
+  @positive
   Scenario: Account contains correct profile details
     Given Account page is opened
     And Profile page is visible
@@ -13,7 +12,7 @@ Feature: Account feature
 
 
   @requiresRegistrationAndLogin
-    @positive
+  @positive
   Scenario: Deletion of user's profile
     Given Account page is opened
     And Profile page is visible
@@ -21,10 +20,9 @@ Feature: Account feature
     Then Profile is deleted
 
 
-  @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
-    @positive
+  @positive
   Scenario: Edition and saving changes to user's profile
     Given Account page is opened
     And Profile page is visible
@@ -36,10 +34,9 @@ Feature: Account feature
     Then All changes are saved
 
 
-  @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
-    @positive
+  @positive
   Scenario: Edition and cancelling changes to user's profile
     Given Account page is opened
     And Profile page is visible
@@ -54,7 +51,7 @@ Feature: Account feature
   @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
-    @positive
+  @positive
   Scenario: Ensure that all Account sections contain no information in ase of a new registered user
     Given Account page is opened
     And Profile page is visible
@@ -76,7 +73,7 @@ Feature: Account feature
   @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
-    @positive
+  @positive
   Scenario: Adding and saving a new address to user's account
     Given Account page is opened
     And Profile page is visible
@@ -90,7 +87,7 @@ Feature: Account feature
   @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
-    @positive
+  @positive
   Scenario: Adding and cancelling adding a new address to user's account
     Given Account page is opened
     And Profile page is visible
@@ -104,7 +101,7 @@ Feature: Account feature
   @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
-    @negative
+  @negative
   Scenario: Adding and saving a new address with improper data to user's account
     Given Account page is opened
     And Profile page is visible
@@ -113,9 +110,3 @@ Feature: Account feature
     And All user's info fields are filled with improper data
     And Save button is clicked
     Then Error message is displayed
-
-
-
-
-
-

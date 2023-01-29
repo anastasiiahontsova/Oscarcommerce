@@ -7,14 +7,13 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
     protected static ApplicationManager app;
+    String validUserEmail = "testemail@gmail.com";
+    String validUserPwd = "validPassword1!";
+
 
     public Hooks(ApplicationManager app) {
         Hooks.app = app;
     }
-
-    String validUserEmail = "testemail@gmail.com";
-    String validUserPwd = "validPassword1!";
-
 
     @Before(value = "@requiresLogin")
     public void loginUserBeforeScenario(Scenario scenario) {
@@ -52,17 +51,21 @@ public class Hooks {
         System.out.println("Account is deleted");
     }
 
-    @After(value = "@deletesUserAccount", order = 2)
+    @After(value = "@deletesUserAccount", order = 3)
     public void deleteUserAccount() {
         app.goToAccountPage();
         app.getAccountHelper().deleteUserAccount();
         System.out.println("Account is deleted");
     }
 
-    @After(order = 1)
-    public void afterScenario() {
+//    @After(order = 2)
+//    public void takeScreenshot() {
 //        app.takeScreenShot();
-//        //app.takeScreenshotWithScrollDown();
+//        app.takeScreenshotWithScrollDown();
+//    }
+
+    @After(order = 1)
+    public void closeApp() {
         app.stopApp();
         System.out.println("After is called!");
     }
@@ -72,17 +75,5 @@ public class Hooks {
 //    public void doSomethingAfter(Scenario scenario){
 //        scenario.isFailed();
 //    }
-
-    //    @After(order = 1)
-//    public void takeScreenshot() {
-//        app.takeScreenShot();
-//        app.takeScreenshotWithScrollDown();
-//    }
-
-//    @After(order = 2)
-//    public void closeApp() {
-//        app.stopApp();
-//    }
-
 
 }
