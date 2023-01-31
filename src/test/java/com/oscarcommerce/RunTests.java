@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        tags = " @scenarioOutline",
+        tags = "@scenarioOutline",
         glue = {"src/test/java/com/oscarcommerce/glue"},
-        plugin = {"pretty", "json:build/cucumber-report/cucumber.json"}
+        plugin = {"pretty", "html:target/cucumber.html"}
 )
 
 public class RunTests {
