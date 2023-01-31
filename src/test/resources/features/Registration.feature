@@ -1,7 +1,6 @@
 Feature: Registration feature
 
 
-  @wip
     @deletesUserAccount
     @positive
   Scenario Outline: Registration with valid credentials

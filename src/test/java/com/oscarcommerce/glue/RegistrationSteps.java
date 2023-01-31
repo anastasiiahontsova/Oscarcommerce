@@ -49,6 +49,7 @@ public class RegistrationSteps {
 
     @Then("Existing user registration error message appears")
     public void existingUserRegistrationErrorMessageAppears() {
-        Assert.assertEquals(app.getRegistrationHelper().hasPasswordErrorMsg(), EXISTING_USER_ERROR_MSG, "Registration error message appears");
+        Assert.assertEquals(app.getRegistrationHelper().hasPasswordErrorMsg(), EXISTING_USER_ERROR_MSG, "Registration error msg appears");
     }
+
 }

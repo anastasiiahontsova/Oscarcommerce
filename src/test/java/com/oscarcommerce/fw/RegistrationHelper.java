@@ -38,6 +38,7 @@ public class RegistrationHelper extends BaseHelper {
     public void logOutUser() {
         click(By.id(LOGOUT_BTN_ID));
     }
+
 }
 
 
