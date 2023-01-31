@@ -52,7 +52,7 @@ Feature: Account feature
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
-  Scenario: Ensure that all Account sections contain no information in ase of a new registered user
+  Scenario: Ensure that all Account sections contain no information in case of a new registered user
     Given Account page is opened
     And Profile page is visible
     Then Profile name is blank

@@ -63,7 +63,7 @@ Feature: Registration feature
 
   @wip
   @negative
-  Scenario Outline: Registration with only invalid email
+  Scenario Outline: Registration with invalid email but valid password
     Given Login and Registration page is opened
     When "<invalid email>" and "<valid password>" for registration are entered
     And Register button is clicked
@@ -76,7 +76,7 @@ Feature: Registration feature
 
 
   @negative
-  Scenario Outline: Registration with only invalid password
+  Scenario Outline: Registration with valid email but invalid password
     Given Login and Registration page is opened
     When "<valid email>" and "<invalid password>" for registration are entered
     And Register button is clicked
