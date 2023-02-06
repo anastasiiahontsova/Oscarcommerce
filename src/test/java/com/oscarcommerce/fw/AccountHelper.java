@@ -188,4 +188,8 @@ public class AccountHelper extends BaseHelper {
     public void clickCancelAddingNewAddressBtn() {
         click(By.xpath("//a[contains(text(),'cancel')]"));
     }
+
+    public String verifyPostcodeErrorDisplayedIsCorrect() {
+        return hasText(By.xpath("//span[@class = 'error-block']"));
+    }
 }

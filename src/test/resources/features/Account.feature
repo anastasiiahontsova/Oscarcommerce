@@ -48,7 +48,7 @@ Feature: Account feature
     Then All changes are not saved
 
 
-  @wip
+
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
@@ -70,7 +70,7 @@ Feature: Account feature
     Then You don't have any wish lists yet. message is displayed
 
 
-  @wip
+
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
@@ -84,7 +84,7 @@ Feature: Account feature
     Then New address is saved and displayed on user's profile
 
 
-  @wip
+
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
@@ -98,7 +98,7 @@ Feature: Account feature
     Then There are no addresses in your address book. message is displayed
 
 
-  @wip
+
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @negative
@@ -109,4 +109,4 @@ Feature: Account feature
     And Add a new address button is clicked
     And All user's info fields are filled with invalid data
     And Save button is clicked
-    Then New address error message is displayed
+    Then Postcode error message is displayed

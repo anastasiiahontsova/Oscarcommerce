@@ -180,8 +180,8 @@ public class AccountSteps {
         app.getAccountHelper().fillUserFieldsToAddNewAddress("a", "a", "a", "a", "1");
     }
 
-    @Then("New address error message is displayed")
+    @Then("Postcode error message is displayed")
     public void newAddressErrorMessageIsDisplayed() {
-        Assert.assertEquals(app.getAccountHelper().verifyAddressErrorDisplayedIsCorrect(), "", "Address error is correct");
+        Assert.assertEquals(app.getAccountHelper().verifyPostcodeErrorDisplayedIsCorrect(), "The postcode '111' is not valid for Germany", "Postcode error is correct");
     }
 }
