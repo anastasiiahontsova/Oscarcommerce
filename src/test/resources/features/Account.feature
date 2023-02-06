@@ -20,7 +20,6 @@ Feature: Account feature
     Then Profile is deleted
 
 
-  @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
@@ -35,7 +34,6 @@ Feature: Account feature
     Then All changes are saved
 
 
-  @wip
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
@@ -54,7 +52,7 @@ Feature: Account feature
   @requiresRegistrationAndLogin
   @deletesUserAccount
   @positive
-  Scenario: Ensure that all Account sections contain no information in ase of a new registered user
+  Scenario: Ensure that all Account sections contain no information in case of a new registered user
     Given Account page is opened
     And Profile page is visible
     Then Profile name is blank
@@ -79,11 +77,11 @@ Feature: Account feature
   Scenario: Adding and saving a new address to user's account
     Given Account page is opened
     And Profile page is visible
-    When Address Book section is clicked
+    When Address Book is clicked
     And Add a new address button is clicked
-    And All user's info fields are filled
-    And Save button is clicked
-    Then New address is saved and displayed on user's account
+    And All required user's info fields are filled
+    And Save new address button is clicked
+    Then New address is saved and displayed on user's profile
 
 
   @wip
@@ -93,11 +91,11 @@ Feature: Account feature
   Scenario: Adding and cancelling adding a new address to user's account
     Given Account page is opened
     And Profile page is visible
-    When Address Book section is clicked
+    When Address Book is clicked
     And Add a new address button is clicked
-    And All user's info fields are filled
-    And Cancel button is clicked
-    Then New address is not saved and not displayed on user's account
+    And All required user's info fields are filled
+    And Cancel adding new address button is clicked
+    Then There are no addresses in your address book. message is displayed
 
 
   @wip
@@ -107,10 +105,8 @@ Feature: Account feature
   Scenario: Adding and saving a new address with improper data to user's account
     Given Account page is opened
     And Profile page is visible
-    When Address Book section is clicked
+    When Address Book is clicked
     And Add a new address button is clicked
-    And All user's info fields are filled with improper data
+    And All user's info fields are filled with invalid data
     And Save button is clicked
-    Then Error message is displayed
-
-
+    Then New address error message is displayed

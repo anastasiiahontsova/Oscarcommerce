@@ -2,6 +2,7 @@ package com.oscarcommerce.fw;
 
 import com.google.common.io.Files;
 import com.oscarcommerce.utils.PropertiesLoader;
+import com.oscarcommerce.utils.User;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
 
     public static final String BASKET_PAGE_PATH = "/basket/";
     public static final String LOGIN_PAGE_PATH = "/accounts/login";
@@ -39,8 +44,9 @@ public class ApplicationManager {
 
     //public static String validUserEmail = PropertiesLoader.loadProperty("validUserEmail");
 
-    //public static String validUserPwd = PropertiesLoader.loadProperty("validUserPwd");
+    private static String validUserPwd = PropertiesLoader.loadProperty("validUserPwd");
 
+    User currentUser;
 
     //protected EventFiringWebDriver webDriver;
     protected WebDriver webDriver;
@@ -165,6 +171,7 @@ public class ApplicationManager {
         searchFunctionHelper = new SearchFunctionHelper(webDriver);
         storeMenuHelper = new StoreMenuHelper(webDriver);
         topPanelHelper = new TopPanelHelper(webDriver);
+        currentUser = new User(validUserPwd);
 
         //        webDriver.register(new MyListener());
 

@@ -16,7 +16,7 @@ public class Hooks {
     @Before(value = "@requiresLogin")
     public void loginUserBeforeScenario(Scenario scenario) {
         app.goToLoginAndRegistrationPage();
-        app.getLoginHelper().enterLoginEmail(validUserEmail);
+        app.getLoginHelper().enterLoginEmail(validUserEmail));
         app.getLoginHelper().enterLoginPassword(validUserPwd);
         app.getLoginHelper().clickLoginBtn();
     }
@@ -24,7 +24,7 @@ public class Hooks {
     @Before(value = "@requiresRegistrationAndLogin")
     public void registerAndLoginUserBeforeScenario(Scenario scenario) {
         app.goToLoginAndRegistrationPage();
-        app.getRegistrationHelper().enterUserRegistrationCredentials(validUserEmail, validUserPwd);
+        app.getRegistrationHelper().enterUserRegistrationCredentials(app.getCurrentUser().getEmail(), app.getCurrentUser().getPassword());
         app.getRegistrationHelper().clickRegisterBtn();
         System.out.println("User is logged in");
     }
@@ -32,7 +32,7 @@ public class Hooks {
     @Before(value = "@requiresRegistrationWithoutLogIn")
     public void registerUserBeforeScenario(Scenario scenario) {
         app.goToLoginAndRegistrationPage();
-        app.getRegistrationHelper().enterUserRegistrationCredentials(validUserEmail, validUserPwd);
+        app.getRegistrationHelper().enterUserRegistrationCredentials(app.getCurrentUser().getEmail(), app.getCurrentUser().getPassword());
         app.getRegistrationHelper().clickRegisterBtn();
         app.getRegistrationHelper().logOutUser();
         System.out.println("User is registered");
