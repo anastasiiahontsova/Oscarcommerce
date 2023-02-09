@@ -7,8 +7,7 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
     protected static ApplicationManager app;
-    String validUserEmail = "testemail@gmail.com";
-    String validUserPwd = "validPassword1!";
+
     public Hooks(ApplicationManager app) {
         Hooks.app = app;
     }
@@ -16,8 +15,8 @@ public class Hooks {
     @Before(value = "@requiresLogin")
     public void loginUserBeforeScenario(Scenario scenario) {
         app.goToLoginAndRegistrationPage();
-        app.getLoginHelper().enterLoginEmail(validUserEmail));
-        app.getLoginHelper().enterLoginPassword(validUserPwd);
+        app.getLoginHelper().enterLoginEmail(app.getCurrentUser().getEmail());
+        app.getLoginHelper().enterLoginPassword(app.getCurrentUser().getPassword());
         app.getLoginHelper().clickLoginBtn();
     }
 
@@ -41,8 +40,8 @@ public class Hooks {
     @After(value = "@loginsAndDeletesUserAccount", order = 3)
     public void loginAndDeleteUserAccount() {
         app.goToLoginAndRegistrationPage();
-        app.getLoginHelper().enterLoginEmail(validUserEmail);
-        app.getLoginHelper().enterLoginPassword(validUserPwd);
+        app.getLoginHelper().enterLoginEmail(app.getCurrentUser().getEmail());
+        app.getLoginHelper().enterLoginPassword(app.getCurrentUser().getPassword());
         app.getLoginHelper().clickLoginBtn();
         app.goToAccountPage();
         app.getAccountHelper().deleteUserAccount();

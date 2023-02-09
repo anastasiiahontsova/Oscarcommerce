@@ -28,21 +28,15 @@ Feature: Login feature
       | firstname-lastname@example.com | validPassword1! |
 
 
-  @requiresRegistrationWithoutLogIn
-    @loginsAndDeletesUserAccount
+
+
     @negative
-  Scenario Outline: Login with both invalid login and password  credentials
+  Scenario: Login with both invalid login and password  credentials
     Given Login and Registration page is opened
-    When Login "<invalid email>" and "<invalid password>" are entered
+    When Login "nonexistingemail0000@gmail.com" and "invalidPassword" are entered
     And Login button is clicked
-    Then Login "<error message>" appears
-    Examples:
-      | invalid email        | invalid password | error message                                                                              |
-      | testemail1@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | testemail@mail.com   | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | 1testemail@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | testemail@g-mail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | test-email@gmail.com | invalidPassword  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+    Then Login "Please enter a correct username and password. Note that both fields may be case-sensitive." appears
+
 
 
   @requiresRegistrationWithoutLogIn

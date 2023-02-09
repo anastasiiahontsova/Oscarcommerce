@@ -1,6 +1,7 @@
 package com.oscarcommerce.glue;
 
 import com.oscarcommerce.fw.ApplicationManager;
+import com.oscarcommerce.utils.ShippingAddress;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,12 +27,12 @@ public class AccountSteps {
 
     @Then("Profile name is blank")
     public void profileNameIsBlank() throws Exception {
-        app.getAccountHelper().verifyProfileNameIsBlank();
+        Assert.assertEquals(app.getAccountHelper().getProfileNameText(), "-", "Profile name is blank");
     }
 
-    @And("Profile email coincides with the registered one")
+    @Then("Profile email matches the registered one")
     public void profileEmailCoincidesWithTheRegisteredOne() {
-        app.getAccountHelper().verifyUserEmailIsCorrectInProfile();
+        Assert.assertEquals(app.getAccountHelper().getUserEmailIsCorrectInProfile(), app.getCurrentUser().getEmail(), "The email coincides with the one in the profile");;
     }
 
     @And("Delete profile button is clicked")
@@ -72,9 +73,10 @@ public class AccountSteps {
 
     @Then("All changes are saved")
     public void allChangesAreSaved() {
+        ShippingAddress expectedNameAndLastName = app.getCurrentUser().getShippingAddress();
         Assert.assertEquals(app.getAccountHelper().verifyProfileUpdatedTextIsPresent(), "Profile updated", "Profile updated message appears");
-        Assert.assertEquals(app.getAccountHelper().verifyProfileNameIsCorrect(), "TestName TestLastName", "Updated profile name is correct");
-        Assert.assertEquals(app.getAccountHelper().verifyProfileEmailIsCorrect(), "testemail.edited@gmail.com", "Updated profile email is correct");
+        Assert.assertEquals(app.getAccountHelper().verifyProfileNameIsCorrect(), expectedNameAndLastName.getName() + " " + expectedNameAndLastName.getLastName(), "Updated profile name is correct");
+        Assert.assertEquals(app.getAccountHelper().verifyProfileEmailIsCorrect(), app.getCurrentUser().getEmail(), "Updated profile email is correct");
     }
 
     @And("Cancel button is clicked")
@@ -84,8 +86,9 @@ public class AccountSteps {
 
     @Then("All changes are not saved")
     public void allChangesAreNotSaved() throws Exception {
-        app.getAccountHelper().verifyProfileNameIsBlank();
-        app.getAccountHelper().verifyUserEmailIsCorrectInProfile();
+        ShippingAddress expectedProfileName = app.getCurrentUser().getShippingAddress();
+        Assert.assertEquals(app.getAccountHelper().getProfileNameText(), expectedProfileName.getName() + " " + expectedProfileName.getLastName());
+        Assert.assertEquals(app.getAccountHelper().verifyProfileEmailIsCorrect(), app.getCurrentUser().getEmail(), "Updated profile email is correct");
     }
 
     @When("Order History is clicked")
@@ -103,7 +106,7 @@ public class AccountSteps {
         app.getAccountHelper().clickAddressBookBtn();
     }
 
-    @Then("There are no addresses in your address book. message is displayed")
+    @Then("There are no addresses in your address book message is displayed")
     public void correctAddressBookMessageIsDisplayed() {
         Assert.assertEquals(app.getAccountHelper().verifyAddressBookMsgIsCorrect(), "There are no addresses in your address book.", "Address book message is correct");
     }
@@ -113,7 +116,7 @@ public class AccountSteps {
         app.getAccountHelper().clickEmailHistoryBtn();
     }
 
-    @Then("Thank you for registering. message is displayed")
+    @Then("Thank you for registering message is displayed")
     public void correctEmailHistoryMessageIsDisplayed() {
         Assert.assertEquals(app.getAccountHelper().verifyEmailHistoryMsgIsCorrect(), "TThank you for registering.", "Email history message is correct");
     }
@@ -123,7 +126,7 @@ public class AccountSteps {
         app.getAccountHelper().clickProductAlertsBtn();
     }
 
-    @Then("You do not have any active alerts for out-of-stock products. message is displayed")
+    @Then("You do not have any active alerts for out-of-stock products message is displayed")
     public void correctProductAlertsMessageIsDisplayed() {
         Assert.assertEquals(app.getAccountHelper().verifyProductAlertsMsgIsCorrect(), "You do not have any active alerts for out-of-stock products.", "Products alert message is correct");
     }
@@ -133,7 +136,7 @@ public class AccountSteps {
         app.getAccountHelper().clickNotificationsBtn();
     }
 
-    @Then("There are no notifications to display. message is displayed")
+    @Then("There are no notifications to display message is displayed")
     public void correctNotificationsMessageIsDisplayed() {
         Assert.assertEquals(app.getAccountHelper().verifyNotificationsMsgIsCorrect(), "There are no notifications to display.", "Notifications message is correct");
     }
@@ -143,7 +146,7 @@ public class AccountSteps {
         app.getAccountHelper().clickWishListBtn();
     }
 
-    @Then("You don't have any wish lists yet. message is displayed")
+    @Then("You don't have any wish lists yet message is displayed")
     public void correctWishListMessageIsDisplayed() {
         Assert.assertEquals(app.getAccountHelper().verifyWishListMsgIsCorrect(), "You don't have any wish lists yet.", "Wish list message is correct");
 
@@ -154,11 +157,6 @@ public class AccountSteps {
         app.getAccountHelper().clickAddANewAddressBtn();
     }
 
-    @And("All required user's info fields are filled")
-    public void allUserSInfoFieldsAreFilled() {
-        app.getAccountHelper().fillUserFieldsToAddNewAddress("FirstName","LastName", "FirstLineAddress", "Berlin", "10587");
-    }
-
     @And("Save new address button is clicked")
     public void saveNewAddressButtonIsClicked() {
         app.getAccountHelper().clickSaveNewAddressBtn();
@@ -166,22 +164,34 @@ public class AccountSteps {
 
     @Then("New address is saved and displayed on user's profile")
     public void newAddressIsSaved() {
-        Assert.assertEquals(app.getAccountHelper().verifyNewAddressIsDisplayed(), "Address 'FirstName LastName, FirstLineAddress, Berlin, 10587, Germany' created", "New address is saved");
-
+        ShippingAddress expectedShippingAddress = app.getCurrentUser().getShippingAddress();
+        Assert.assertEquals(app.getAccountHelper().getShippingAddressInfo(), expectedShippingAddress.getName()
+                + " " + expectedShippingAddress.getLastName()
+                + " " + expectedShippingAddress.getFirstLineAddress()
+                + " " + expectedShippingAddress.getCity()
+                + " " + expectedShippingAddress.getPostcode(),
+                "Current shipping name is: " + expectedShippingAddress.getName()
+                        + " " + expectedShippingAddress.getLastName()
+                        + " " + expectedShippingAddress.getFirstLineAddress()
+                        + " " + expectedShippingAddress.getCity()
+                        + " " + expectedShippingAddress.getPostcode());
     }
+
 
     @And("Cancel adding new address button is clicked")
     public void cancelAddingNewAddressButtonIsClicked() {
         app.getAccountHelper().clickCancelAddingNewAddressBtn();
     }
 
-    @And("All user's info fields are filled with invalid data")
-    public void allFieldsFilledWithInvalidData() {
-        app.getAccountHelper().fillUserFieldsToAddNewAddress("a", "a", "a", "a", "1");
-    }
 
     @Then("Postcode error message is displayed")
     public void newAddressErrorMessageIsDisplayed() {
         Assert.assertEquals(app.getAccountHelper().verifyPostcodeErrorDisplayedIsCorrect(), "The postcode '111' is not valid for Germany", "Postcode error is correct");
+    }
+
+    @And("Enter {string}, {string}, {string}, {string}, {string} into shipping address fields")
+    public void enterIntoShippingAddressFields(String name, String lastName, String firstLineAddress, String city, String postcode) {
+        app.getAccountHelper().fillUserFieldsToAddNewAddress(name, lastName, firstLineAddress, city, postcode);
+        app.getCurrentUser().addShippingAddress(name, lastName, firstLineAddress, city, postcode);
     }
 }

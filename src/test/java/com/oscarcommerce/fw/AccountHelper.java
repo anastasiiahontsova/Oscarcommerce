@@ -2,7 +2,6 @@ package com.oscarcommerce.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class AccountHelper extends BaseHelper {
 
@@ -10,7 +9,6 @@ public class AccountHelper extends BaseHelper {
     public static final String DELETE_PROFILE_BTN_ID = "delete_profile";
     public static final String PROFILE_NAME_TABLE_FIELD_XPATH = "//table[@class='table table-striped table-bordered']/tbody[1]/tr[1]/td[1]";
     public static final String PROFILE_EMAIL_TABLE_FIELD_XPATH = "//*[@id='default']/div/div/div/div/table/tbody/tr[2]/td";
-    public static final String EXPECTED_USER_EMAIL_STR = "testemail@gmail.com";
     public static final String PROFILE_DELETE_PROFILE_BTN_ID = "delete_profile";
     public static final String PROFILE_PASSWORD_FIELD_ID = "id_password";
     public static final String PROFILE_FINAL_DELETE_PROFILE_BTN_XPATH = "//button[contains(text(),'Delete')]";
@@ -49,11 +47,8 @@ public class AccountHelper extends BaseHelper {
         waitForElementToBeVisible(By.id(DELETE_PROFILE_BTN_ID));
     }
 
-    public boolean verifyProfileNameIsBlank() throws Exception {
-        if (webDriver.findElement(By.xpath(PROFILE_NAME_TABLE_FIELD_XPATH)).getText() == "-") {
-            return true;
-        }
-        return false;
+    public String getProfileNameText() throws Exception {
+        return webDriver.findElement(By.xpath(PROFILE_NAME_TABLE_FIELD_XPATH)).getText();
     }
 
     public void goToAccountPage() {
@@ -61,9 +56,8 @@ public class AccountHelper extends BaseHelper {
 
     }
 
-    public void verifyUserEmailIsCorrectInProfile() {
-        String actualEmail = webDriver.findElement(By.xpath(PROFILE_EMAIL_TABLE_FIELD_XPATH)).getText();
-        Assert.assertEquals(actualEmail, EXPECTED_USER_EMAIL_STR, "The email coincides with the one in the profile");
+    public String getUserEmailIsCorrectInProfile() {
+        return webDriver.findElement(By.xpath(PROFILE_EMAIL_TABLE_FIELD_XPATH)).getText();
     }
 
     public void deleteUserAccount() {
@@ -165,10 +159,10 @@ public class AccountHelper extends BaseHelper {
         click(By.xpath(ADD_A_NEW_ADDRESS_BTN_XPATH));
     }
 
-    public void fillUserFieldsToAddNewAddress(String firstName, String lastName, String firstAddress, String city, String postcode) {
+    public void fillUserFieldsToAddNewAddress(String firstName, String lastName, String firstLineAddress, String city, String postcode) {
         clearAndType(By.id("id_first_name"), firstName);
         clearAndType(By.id("id_last_name"), lastName);
-        clearAndType(By.id("id_line1"), firstAddress);
+        clearAndType(By.id("id_line1"), firstLineAddress);
         clearAndType(By.id("id_line4"), city);
         clearAndType(By.id("id_postcode"), postcode);
         click(By.id("id_country"));
@@ -181,10 +175,6 @@ public class AccountHelper extends BaseHelper {
     }
 
 
-    public String verifyNewAddressIsDisplayed() {
-        return hasText(By.cssSelector("[class='alertinner wicon']"));
-    }
-
     public void clickCancelAddingNewAddressBtn() {
         click(By.xpath("//a[contains(text(),'cancel')]"));
     }
@@ -192,4 +182,9 @@ public class AccountHelper extends BaseHelper {
     public String verifyPostcodeErrorDisplayedIsCorrect() {
         return hasText(By.xpath("//span[@class = 'error-block']"));
     }
+
+    public String getShippingAddressInfo() {
+        return webDriver.findElement(By.xpath("//table//tbody//address[1]")).getText();
+    }
+
 }
