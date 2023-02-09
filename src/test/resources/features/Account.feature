@@ -125,11 +125,11 @@ Feature: Account feature
 
   @requiresRegistrationAndLogin
   @deletesUserAccount
-  @positive
+  @negative
   Scenario: User cancels creating a new address in Address Book. No changes are saved.
     Given Account page is opened
-    And Profile page is visible
-    When Address Book is clicked
+    When Profile page is visible
+    And Address Book is clicked
     And Add a new address button is clicked
     And Enter "TestName", "TestLastName", "TestFirstLineAddress", "Berlin", "10587" into shipping address fields
     And Cancel adding new address button is clicked

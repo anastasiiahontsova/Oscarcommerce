@@ -17,7 +17,7 @@ public class AccountSteps {
 
     @Given("Account page is opened")
     public void openAccountPage() {
-        app.getAccountHelper().goToAccountPage();
+        app.getAccountHelper().clickAccountBtn();
     }
 
     @And("Profile page is visible")
@@ -85,7 +85,7 @@ public class AccountSteps {
     }
 
     @Then("All changes are not saved")
-    public void allChangesAreNotSaved() throws Exception {
+    public void allChangesAreNotSaved()  {
         ShippingAddress expectedProfileName = app.getCurrentUser().getShippingAddress();
         Assert.assertEquals(app.getAccountHelper().getProfileNameText(), expectedProfileName.getName() + " " + expectedProfileName.getLastName());
         Assert.assertEquals(app.getAccountHelper().verifyProfileEmailIsCorrect(), app.getCurrentUser().getEmail(), "Updated profile email is correct");

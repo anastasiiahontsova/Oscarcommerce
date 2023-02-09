@@ -2,6 +2,7 @@ package com.oscarcommerce.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class AccountHelper extends BaseHelper {
 
@@ -33,7 +34,7 @@ public class AccountHelper extends BaseHelper {
     public static final String PRODUCT_ALERT_BTN_XPATH = "//a[@href='/en-gb/accounts/alerts/']";
     public static final String PRODUCTS_ALERT_MSG_ID = "messages";
     public static final String NOTIFICATIONS_BTN_XPATH = "//a[@href='/en-gb/accounts/notifications/inbox/']";
-    public static final String NOTIFICATIONS_MSG_ID = "messages";
+    public static final String NOTIFICATIONS_MSG_XPATH = "//p[@class='mt-3']";
     public static final String WISH_LIST_BTN_XPATH = "//a[@href='/en-gb/accounts/wishlists/']";
     public static final String WISH_LIST_MSG_ID = "messages";
     public static final String ADD_A_NEW_ADDRESS_BTN_XPATH = "//a[@href='/en-gb/accounts/addresses/add/']";
@@ -47,7 +48,7 @@ public class AccountHelper extends BaseHelper {
         waitForElementToBeVisible(By.id(DELETE_PROFILE_BTN_ID));
     }
 
-    public String getProfileNameText() throws Exception {
+    public String getProfileNameText()  {
         return webDriver.findElement(By.xpath(PROFILE_NAME_TABLE_FIELD_XPATH)).getText();
     }
 
@@ -144,7 +145,7 @@ public class AccountHelper extends BaseHelper {
     }
 
     public String verifyNotificationsMsgIsCorrect() {
-        return hasText(By.id(NOTIFICATIONS_MSG_ID));
+        return hasText(By.xpath(NOTIFICATIONS_MSG_XPATH));
     }
 
     public void clickWishListBtn() {
@@ -160,13 +161,13 @@ public class AccountHelper extends BaseHelper {
     }
 
     public void fillUserFieldsToAddNewAddress(String firstName, String lastName, String firstLineAddress, String city, String postcode) {
+        Select country = new Select(webDriver.findElement(By.id("id_country")));
         clearAndType(By.id("id_first_name"), firstName);
         clearAndType(By.id("id_last_name"), lastName);
         clearAndType(By.id("id_line1"), firstLineAddress);
         clearAndType(By.id("id_line4"), city);
         clearAndType(By.id("id_postcode"), postcode);
-        click(By.id("id_country"));
-        click((By.cssSelector("value='DE'")));
+        country.selectByValue("DE");
 
     }
 
@@ -187,4 +188,7 @@ public class AccountHelper extends BaseHelper {
         return webDriver.findElement(By.xpath("//table//tbody//address[1]")).getText();
     }
 
+    public void clickAccountBtn() {
+        click(By.xpath("//a[@href='/en-gb/accounts/']"));
+    }
 }
