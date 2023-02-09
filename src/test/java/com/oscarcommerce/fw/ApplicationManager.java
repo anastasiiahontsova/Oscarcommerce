@@ -31,9 +31,9 @@ public class ApplicationManager {
 
 
     public static final String BASKET_PAGE_PATH = "/basket/";
-    public static final String LOGIN_PAGE_PATH = "/accounts/login";
+    public static final String ITEM_CONTAINER_PAGE_PATH = "/catalogue/";
+
     public static final String LOGIN_AND_REGISTRATION_PAGE_PATH = "/accounts/login";
-    public static final String REGISTRATION_PAGE_PATH = "/accounts/login";
 
     public static final String PWD_RESET_PAGE_PATH = "/password-reset/";
     private static final String SCREENSHOT_FILE_NAME = "target/screenshots/$timestamp_screenshot.png";
@@ -54,9 +54,6 @@ public class ApplicationManager {
     protected String baseUrl;
     protected String browser;
 
-    //protected String validUserEmail;
-
-    //protected String validUserPwd;
     Recorder recorder;
 
     AccountHelper accountHelper;
@@ -205,6 +202,10 @@ public class ApplicationManager {
 
     public void goToBasketPage() {
         webDriver.get(baseUrl + BASKET_PAGE_PATH);
+    }
+
+    public void goToItemContainerPage(){
+        webDriver.get(baseUrl + ITEM_CONTAINER_PAGE_PATH);
     }
 
     public String takeScreenShot() {

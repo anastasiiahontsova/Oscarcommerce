@@ -6,4 +6,8 @@ public class ItemContainerHelper extends BaseHelper {
     public ItemContainerHelper(WebDriver webDriver) {
         super(webDriver);
     }
+
+    public void goToItemContainerPage() {
+        goToItemContainerPage();
+    }
 }

@@ -7,7 +7,7 @@ Feature: Shopping basket feature
     Given Item container page is opened
     When The shellcoder's handbook item card is opened
     And Add The shellcoder's handbook to basket button is clicked
-    And Checkout now button is clicked
+    And Checkout now quick button is clicked
     And Enter email address page is opened
     And Email address is entered
     And Enter shipping address page is opened
