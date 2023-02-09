@@ -3,7 +3,7 @@ Feature: Login feature
 
   @deletesUserAccount
     @positive
-  Scenario Outline: Login with valid credentials
+  Scenario Outline: User logins with valid credentials. User is logged in
     Given Login and Registration page is opened
     When User is registered without login with "<valid email>" and "<valid password>"
     And Login "<valid email>" and "<valid password>" are entered
@@ -31,7 +31,7 @@ Feature: Login feature
 
 
     @negative
-  Scenario: Login with both invalid login and password  credentials
+  Scenario: User logins with both invalid login and password credentials. Error message appears
     Given Login and Registration page is opened
     When Login "nonexistingemail0000@gmail.com" and "invalidPassword" are entered
     And Login button is clicked
@@ -42,7 +42,7 @@ Feature: Login feature
   @requiresRegistrationWithoutLogIn
     @loginsAndDeletesUserAccount
     @negative
-  Scenario Outline: Login with invalid email but valid password
+  Scenario Outline: User logins with invalid email but valid password. Error message appears
     Given Login and Registration page is opened
     When Login "<invalid email>" and "<invalid password>" are entered
     And Login button is clicked
@@ -59,7 +59,7 @@ Feature: Login feature
   @requiresRegistrationWithoutLogIn
     @loginsAndDeletesUserAccount
     @negative
-  Scenario Outline: Login with valid email but invalid password
+  Scenario Outline: User logins with valid email but invalid password. Error message appears
     Given Login and Registration page is opened
     When Login "<valid email>" and "<invalid password>" are entered
     And Login button is clicked
@@ -76,7 +76,7 @@ Feature: Login feature
   @requiresRegistrationWithoutLogIn
     @loginsAndDeletesUserAccount
     @negative
-  Scenario Outline: Login with blank credentials
+  Scenario Outline: User logins with blank credentials. Login alert appears
     Given Login and Registration page is opened
     When Login "<email>" and "<password>" are entered
     And Login button is clicked
@@ -89,7 +89,7 @@ Feature: Login feature
 
 
   @positive
-  Scenario: Password reset
+  Scenario: User resets password. Reset email is sent to a user
     Given Login and Registration page is opened
     When I've forgotten my password link is clicked
     And Password reset page is opened
