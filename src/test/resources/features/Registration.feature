@@ -3,7 +3,7 @@ Feature: Registration feature
 
     @deletesUserAccount
     @positive
-  Scenario Outline: Registration with valid credentials
+  Scenario Outline: User registers with valid credentials. User is registered and logged in
     Given Login and Registration page is opened
     When "<valid email>" and "<valid password>" for registration are entered
     And Register button is clicked
@@ -28,7 +28,7 @@ Feature: Registration feature
 
   @wip
     @negative
-  Scenario Outline: Registration with invalid credentials if error message appears
+  Scenario Outline: User registers with invalid credentials. Error message appears
     Given Login and Registration page is opened
     When "<invalid email>" and "<invalid password>" for registration are entered
     And Register button is clicked
@@ -45,7 +45,7 @@ Feature: Registration feature
 
   @wip
     @negative
-  Scenario Outline: Registration with invalid credentials if alert appears
+  Scenario Outline: User registers with invalid credentials. Registration alert appears
     Given Login and Registration page is opened
     When "<invalid email>" and "<invalid password>" for registration are entered
     And Register button is clicked
@@ -63,7 +63,7 @@ Feature: Registration feature
 
 
   @negative
-  Scenario Outline: Registration with only invalid email
+  Scenario Outline: User registers with only invalid email. Registration error message appears
     Given Login and Registration page is opened
     When "<invalid email>" and "<valid password>" for registration are entered
     And Register button is clicked
@@ -76,7 +76,7 @@ Feature: Registration feature
 
 
   @negative
-  Scenario Outline: Registration with only invalid password
+  Scenario Outline: User registers with only invalid password. Registration error message appears
     Given Login and Registration page is opened
     When "<valid email>" and "<invalid password>" for registration are entered
     And Register button is clicked
@@ -94,7 +94,7 @@ Feature: Registration feature
 
 
   @negative
-  Scenario Outline: Registration with blank email and/or blank password credentials
+  Scenario Outline: User registers with blank email and/or blank password credentials. Registration alert appears
     Given Login and Registration page is opened
     When "<blank email>" and "<blank password>" for registration are entered
     And Register button is clicked
@@ -109,7 +109,7 @@ Feature: Registration feature
   @requiresRegistrationWithoutLogIn
   @loginsAndDeletesUserAccount
   @negative
-  Scenario: Existing user registration
+  Scenario: User registers with existing user credentials. Existing user registration error message appears
     Given Login and Registration page is opened
     And Existing user's credentials for registration are entered
     And Register button is clicked
