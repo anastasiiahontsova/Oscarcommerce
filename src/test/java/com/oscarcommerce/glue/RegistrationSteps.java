@@ -27,6 +27,11 @@ public class RegistrationSteps {
         app.getRegistrationHelper().enterUserRegistrationCredentials(email, pwd);
     }
 
+    @When("{string} and {string} for existing user registration are entered")
+    public void registerExistingUser(String email, String pwd) {
+        app.getRegistrationHelper().enterUserRegistrationCredentials(BaseHelper.VALID_EMAIL, BaseHelper.VALID_PASSWORD);
+    }
+
     @And("Register button is clicked")
     public void clickRegisterButton() {
         app.getRegistrationHelper().clickRegisterBtn();
@@ -52,4 +57,8 @@ public class RegistrationSteps {
         Assert.assertEquals(app.getRegistrationHelper().hasPasswordErrorMsg(), EXISTING_USER_ERROR_MSG, "Registration error msg appears");
     }
 
+    @And("User is logged out")
+    public void userIsLoggedOut() {
+        app.getRegistrationHelper().logOutUser();
+    }
 }

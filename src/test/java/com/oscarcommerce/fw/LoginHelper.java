@@ -53,7 +53,7 @@ public class LoginHelper extends BaseHelper {
 
 
     public String hasLoginErrorMsg() {
-        return hasText(By.xpath(LOGIN_ERROR_MSG_FIELD_XPATH));
+        return getText(By.xpath(LOGIN_ERROR_MSG_FIELD_XPATH));
     }
 
 }

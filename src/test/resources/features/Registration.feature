@@ -1,7 +1,7 @@
 Feature: Registration feature
 
 
-    @deletesUserAccount
+  @deletesUserAccount
     @positive
   Scenario Outline: User registers with valid credentials. User is registered and logged in
     Given Login and Registration page is opened
@@ -34,14 +34,14 @@ Feature: Registration feature
     And Register button is clicked
     Then Registration "<error message>" appears
     Examples:
-      | invalid email            | invalid password | error message                                                                                    |
-      | email@example            | 111              | Enter a valid email address.                                                                     |
-      | .email@example.com       | 111              | Enter a valid email address.                                                                     |
-      | email.@example.com       | 111              | Enter a valid email address.                                                                     |
-      | email..email@example.com | 111              | Enter a valid email address.                                                                     |
-      | email@example.web        | 111              | This password is too short. It must contain at least 9 characters.  This password is too common. |
-      | email@111.222.333.44444  | 111              | This password is too short. It must contain at least 9 characters.  This password is too common. |
-      | Abc..123@example.com     | 111              | Enter a valid email address.                                                                     |
+      | invalid email            | invalid password | error message                                                      |
+      | email@example            | 111              | Enter a valid email address.                                       |
+      | .email@example.com       | 111              | Enter a valid email address.                                       |
+      | email.@example.com       | 111              | Enter a valid email address.                                       |
+      | email..email@example.com | 111              | Enter a valid email address.                                       |
+      | email@example.web        | 111              | This password is too short. It must contain at least 9 characters. |
+      | email@111.222.333.44444  | 111              | This password is too short. It must contain at least 9 characters. |
+      | Abc..123@example.com     | 111              | Enter a valid email address.                                       |
 
   @wip
     @negative
@@ -105,12 +105,14 @@ Feature: Registration feature
       | testemail123@gmail.com |                | alert         |
       |                        | Password!123   | alert         |
 
-
-  @requiresRegistrationWithoutLogIn
-  @loginsAndDeletesUserAccount
+  @deletesExistingUserAccount
   @negative
   Scenario: User registers with existing user credentials. Existing user registration error message appears
     Given Login and Registration page is opened
+    When "<valid email>" and "<valid password>" for existing user registration are entered
+    And Register button is clicked
+    And User is logged out
+    And Login and Registration page is opened
     And Existing user's credentials for registration are entered
     And Register button is clicked
     Then Existing user registration error message appears

@@ -14,7 +14,7 @@ public class ItemContainerSteps {
 
     @Given("Item container page is opened")
     public void itemContainerPageIsOpened() {
-        app.getItemContainerHelper().goToItemContainerPage();
+        app.goToItemContainerPage();
     }
 
 

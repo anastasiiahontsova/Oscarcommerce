@@ -109,7 +109,7 @@ public class BaseHelper {
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-    public String hasText(By locator) {
+    public String getText(By locator) {
         return webDriver.findElement(locator).getText();
     }
 

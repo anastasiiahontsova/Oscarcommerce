@@ -2,14 +2,17 @@ package com.oscarcommerce.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class AccountHelper extends BaseHelper {
 
 
     public static final String DELETE_PROFILE_BTN_ID = "delete_profile";
     public static final String PROFILE_NAME_TABLE_FIELD_XPATH = "//table[@class='table table-striped table-bordered']/tbody[1]/tr[1]/td[1]";
-    public static final String PROFILE_EMAIL_TABLE_FIELD_XPATH = "//*[@id='default']/div/div/div/div/table/tbody/tr[2]/td";
+    public static final String PROFILE_EMAIL_TABLE_FIELD_XPATH = "//table[@class='table table-striped table-bordered']/tbody[1]/tr[2]/td[1]";
     public static final String PROFILE_DELETE_PROFILE_BTN_ID = "delete_profile";
     public static final String PROFILE_PASSWORD_FIELD_ID = "id_password";
     public static final String PROFILE_FINAL_DELETE_PROFILE_BTN_XPATH = "//button[contains(text(),'Delete')]";
@@ -18,10 +21,7 @@ public class AccountHelper extends BaseHelper {
     public static final String EDIT_PROFILE_BTN_XPATH = "//a[@href='/en-gb/accounts/profile/edit/']";
     public static final String PROFILE_EDIT_FIRST_NAME_FIELD_ID = "id_first_name";
     public static final String PROFILE_EDIT_LAST_NAME_FIELD_ID = "id_last_name";
-    public static final String NAME_TO_UPDATE_USER_NAME_STR = "TestName";
-    public static final String LAST_NAME_TO_UPDATE_USER_LAST_NAME_STR = "TestLastName";
     public static final String PROFILE_EDIT_EMAIL_FIELD_ID = "id_email";
-    public static final String EMAIL_TO_UPDATE_USER_EMAIL_STR = "testemail.edited@gmail.com";
     public static final String SAVE_BTN_TO_UPDATE_PROFILE_INFO_XPATH = "//button[contains(text(), 'Save')]";
     public static final String PROFILE_UPDATED_MSG_FIELD_XPATH = "//div[@class='alertinner wicon']";
     public static final String CANCEL_BTN_TO_UPDATE_USER_PROFILE_INFO_XPATH = "//a[@href='#'][contains(text(), 'cancel')]";
@@ -36,7 +36,7 @@ public class AccountHelper extends BaseHelper {
     public static final String NOTIFICATIONS_BTN_XPATH = "//a[@href='/en-gb/accounts/notifications/inbox/']";
     public static final String NOTIFICATIONS_MSG_XPATH = "//p[@class='mt-3']";
     public static final String WISH_LIST_BTN_XPATH = "//a[@href='/en-gb/accounts/wishlists/']";
-    public static final String WISH_LIST_MSG_ID = "messages";
+    public static final String CREATE_NEW_WISH_LIST_BTN_XPATH = "//a[@href='en-gb/accounts/wishlists/create/']";
     public static final String ADD_A_NEW_ADDRESS_BTN_XPATH = "//a[@href='/en-gb/accounts/addresses/add/']";
 
     public AccountHelper(WebDriver webDriver) {
@@ -68,7 +68,7 @@ public class AccountHelper extends BaseHelper {
         waitForElementToBeVisible(By.id(PROFILE_DELETED_MSG_ID));
     }
 
-    public boolean verifyLoginAndRegistrationBtnIsPresent() {
+    public boolean getLoginAndRegistrationBtn() {
         return elementIsPresent(By.id(LOGIN_BTN_ID));
     }
 
@@ -76,32 +76,32 @@ public class AccountHelper extends BaseHelper {
         click(By.xpath(EDIT_PROFILE_BTN_XPATH));
     }
 
-    public void editFirstName() {
-        clearAndType(By.id(PROFILE_EDIT_FIRST_NAME_FIELD_ID), NAME_TO_UPDATE_USER_NAME_STR);
+    public void enterFirstName(String firstName) {
+        clearAndType(By.id(PROFILE_EDIT_FIRST_NAME_FIELD_ID), firstName);
     }
 
-    public void editLastName() {
-        clearAndType(By.id(PROFILE_EDIT_LAST_NAME_FIELD_ID), LAST_NAME_TO_UPDATE_USER_LAST_NAME_STR);
+    public void enterLastName(String lastname) {
+        clearAndType(By.id(PROFILE_EDIT_LAST_NAME_FIELD_ID), lastname);
     }
 
-    public void editEmail() {
-        clearAndType(By.id(PROFILE_EDIT_EMAIL_FIELD_ID), EMAIL_TO_UPDATE_USER_EMAIL_STR);
+    public void enterEmail(String email) {
+        clearAndType(By.id(PROFILE_EDIT_EMAIL_FIELD_ID), email);
     }
 
     public void clickSaveUpdateProfileBtn() {
         click(By.xpath(SAVE_BTN_TO_UPDATE_PROFILE_INFO_XPATH));
     }
 
-    public String verifyProfileUpdatedTextIsPresent() {
-        return hasText(By.xpath(PROFILE_UPDATED_MSG_FIELD_XPATH));
+    public String getProfileUpdatedText() {
+        return getText(By.xpath(PROFILE_UPDATED_MSG_FIELD_XPATH));
     }
 
-    public String verifyProfileNameIsCorrect() {
-        return hasText(By.xpath(PROFILE_NAME_TABLE_FIELD_XPATH));
+    public String getProfileName() {
+        return getText(By.xpath(PROFILE_NAME_TABLE_FIELD_XPATH));
     }
 
-    public String verifyProfileEmailIsCorrect() {
-        return hasText(By.xpath(PROFILE_EMAIL_TABLE_FIELD_XPATH));
+    public String getProfileEmail() {
+        return getText(By.xpath(PROFILE_EMAIL_TABLE_FIELD_XPATH));
     }
 
     public void clickCancelUpdateProfileBtn() {
@@ -112,49 +112,46 @@ public class AccountHelper extends BaseHelper {
         click(By.xpath(ORDER_HISTORY_BTN_XPATH));
     }
 
-    public String verifyOrderHistoryMsgIsCorrect() {
-        return hasText(By.id(ORDER_HISTORY_MSG_ID));
+    public String getOrderHistoryMsg() {
+        return getText(By.id(ORDER_HISTORY_MSG_ID));
     }
 
     public void clickAddressBookBtn() {
         click(By.xpath(ADDRESS_BOOK_BTN_XPATH));
     }
 
-    public String verifyAddressBookMsgIsCorrect() {
-        return hasText(By.id(ADDRESS_BOOK_MSG_ID));
+    public String getAddressBookMsg() {
+        return getText(By.id(ADDRESS_BOOK_MSG_ID));
     }
 
     public void clickEmailHistoryBtn() {
         click(By.xpath(EMAIL_HISTORY_BTN_XPATH));
     }
 
-    public String verifyEmailHistoryMsgIsCorrect() {
-        return hasText(By.xpath(EMAIL_HISTORY_MSG_XPATH));
+    public String getEmailHistoryMsg() {
+        return getText(By.xpath(EMAIL_HISTORY_MSG_XPATH));
     }
 
     public void clickProductAlertsBtn() {
         click(By.xpath(PRODUCT_ALERT_BTN_XPATH));
     }
 
-    public String verifyProductAlertsMsgIsCorrect() {
-        return hasText(By.id(PRODUCTS_ALERT_MSG_ID));
+    public String getProductAlertsMsg() {
+        return getText(By.id(PRODUCTS_ALERT_MSG_ID));
     }
 
     public void clickNotificationsBtn() {
         click(By.xpath(NOTIFICATIONS_BTN_XPATH));
     }
 
-    public String verifyNotificationsMsgIsCorrect() {
-        return hasText(By.xpath(NOTIFICATIONS_MSG_XPATH));
+    public String getNotificationsMsg() {
+        return getText(By.xpath(NOTIFICATIONS_MSG_XPATH));
     }
 
     public void clickWishListBtn() {
         click(By.xpath(WISH_LIST_BTN_XPATH));
     }
 
-    public String verifyWishListMsgIsCorrect() {
-        return hasText(By.id(WISH_LIST_MSG_ID));
-    }
 
     public void clickAddANewAddressBtn() {
         click(By.xpath(ADD_A_NEW_ADDRESS_BTN_XPATH));
@@ -176,12 +173,8 @@ public class AccountHelper extends BaseHelper {
     }
 
 
-    public void clickCancelAddingNewAddressBtn() {
-        click(By.xpath("//a[contains(text(),'cancel')]"));
-    }
-
-    public String verifyPostcodeErrorDisplayedIsCorrect() {
-        return hasText(By.xpath("//span[@class = 'error-block']"));
+    public String getPostcodeError() {
+        return getText(By.xpath("//span[@class = 'error-block']"));
     }
 
     public String getShippingAddressInfo() {
@@ -190,5 +183,12 @@ public class AccountHelper extends BaseHelper {
 
     public void clickAccountBtn() {
         click(By.xpath("//a[@href='/en-gb/accounts/']"));
+    }
+
+
+    public boolean getANewWishListBtnSize() {
+        List<WebElement> createNewWishBtnSize = webDriver.findElements(By.xpath(CREATE_NEW_WISH_LIST_BTN_XPATH));
+        if (createNewWishBtnSize.size() == 1);
+        return true;
     }
 }

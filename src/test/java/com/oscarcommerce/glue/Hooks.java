@@ -1,6 +1,7 @@
 package com.oscarcommerce.glue;
 
 import com.oscarcommerce.fw.ApplicationManager;
+import com.oscarcommerce.fw.BaseHelper;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -34,10 +35,12 @@ public class Hooks {
         app.getRegistrationHelper().enterUserRegistrationCredentials(app.getCurrentUser().getEmail(), app.getCurrentUser().getPassword());
         app.getRegistrationHelper().clickRegisterBtn();
         app.getRegistrationHelper().logOutUser();
-        System.out.println("User is registered");
+        System.out.println("User is registered and logged out");
     }
 
-    @After(value = "@loginsAndDeletesUserAccount", order = 3)
+
+
+    @After(value = "@loginsAndDeletesUserAccount", order = 4)
     public void loginAndDeleteUserAccount() {
         app.goToLoginAndRegistrationPage();
         app.getLoginHelper().enterLoginEmail(app.getCurrentUser().getEmail());
@@ -48,17 +51,27 @@ public class Hooks {
         System.out.println("Account is deleted");
     }
 
-    @After(value = "@deletesUserAccount", order = 2)
+    @After(value = "@deletesUserAccount", order = 3)
     public void deleteUserAccount() {
         app.goToAccountPage();
         app.getAccountHelper().deleteUserAccount();
         System.out.println("Account is deleted");
     }
 
+    @After(value = "@deletesExistingUserAccount", order = 2)
+    public void deleteExistingUserAccount() {
+        app.goToLoginAndRegistrationPage();
+        app.getLoginHelper().enterLoginEmail(BaseHelper.VALID_EMAIL);
+        app.getLoginHelper().enterLoginPassword(BaseHelper.VALID_PASSWORD);
+        app.getLoginHelper().clickLoginBtn();
+        app.goToAccountPage();
+        app.getAccountHelper().deleteUserAccount();
+        System.out.println("Account is deleted");
+    }
+
+
     @After(order = 1)
-    public void afterScenario() {
-//        app.takeScreenShot();
-//        //app.takeScreenshotWithScrollDown();
+    public void closeApp() {
         app.stopApp();
         System.out.println("After is called!");
     }
@@ -69,16 +82,10 @@ public class Hooks {
 //        scenario.isFailed();
 //    }
 
-    //    @After(order = 1)
+//        @After(order = 0)
 //    public void takeScreenshot() {
 //        app.takeScreenShot();
 //        app.takeScreenshotWithScrollDown();
 //    }
-
-//    @After(order = 2)
-//    public void closeApp() {
-//        app.stopApp();
-//    }
-
 
 }

@@ -14,4 +14,12 @@ public class ItemListContainerHelper extends BaseHelper {
     public void openShellcoderSHandbookItemCard() {
         click(By.xpath(BOOK_THE_SHELLCODERS_HANDBOOK_XPATH));
     }
+
+    public void scrollToTheShellcoderSHandbook() {
+        scrollToElement(By.xpath("//form[@action='/en-gb/basket/add/209/']"), 400);
+    }
+
+    public void clickAddToBasketBtn() {
+        click(By.xpath("//form[@action='/en-gb/basket/add/209/']"));
+    }
 }

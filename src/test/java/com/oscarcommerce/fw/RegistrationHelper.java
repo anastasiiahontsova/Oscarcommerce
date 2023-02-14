@@ -32,7 +32,7 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public String hasPasswordErrorMsg() {
-        return hasText(By.xpath(REGISTRATION_PWD_ERROR_MSG_FIELD_XPATH));
+        return getText(By.xpath(REGISTRATION_PWD_ERROR_MSG_FIELD_XPATH));
     }
 
     public void logOutUser() {

@@ -1,5 +1,6 @@
 package com.oscarcommerce.fw;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ItemContainerHelper extends BaseHelper {
@@ -7,7 +8,7 @@ public class ItemContainerHelper extends BaseHelper {
         super(webDriver);
     }
 
-    public void goToItemContainerPage() {
-        goToItemContainerPage();
-    }
+
+
+
 }

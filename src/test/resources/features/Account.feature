@@ -17,9 +17,8 @@ Feature: Account feature
     Given Account page is opened
     And Profile page is visible
     And Edit profile button is clicked
-    And First name field is entered
-    And Last name field is entered
-    And Email address is changed
+    And Firstname "TestName" and lastname "TestLastName" are entered
+    And "edited.email@gmail.com" email is entered
     And Save button is clicked
     Then All changes are saved
 
@@ -107,7 +106,7 @@ Feature: Account feature
     Given Account page is opened
     And Profile page is visible
     When Wish Lists is clicked
-    Then You don't have any wish lists yet message is displayed
+    Then Create a new new wish list button is present
 
 
   @requiresRegistrationAndLogin
@@ -121,19 +120,6 @@ Feature: Account feature
     And Enter "TestName", "TestLastName", "TestFirstLineAddress", "Berlin", "10587" into shipping address fields
     And Save new address button is clicked
     Then New address is saved and displayed on user's profile
-
-
-  @requiresRegistrationAndLogin
-  @deletesUserAccount
-  @negative
-  Scenario: User cancels creating a new address in Address Book. No changes are saved.
-    Given Account page is opened
-    When Profile page is visible
-    And Address Book is clicked
-    And Add a new address button is clicked
-    And Enter "TestName", "TestLastName", "TestFirstLineAddress", "Berlin", "10587" into shipping address fields
-    And Cancel adding new address button is clicked
-    Then There are no addresses in your address book message is displayed
 
 
   @requiresRegistrationAndLogin

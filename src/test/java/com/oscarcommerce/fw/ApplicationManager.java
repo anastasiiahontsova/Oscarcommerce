@@ -3,6 +3,7 @@ package com.oscarcommerce.fw;
 import com.google.common.io.Files;
 import com.oscarcommerce.utils.PropertiesLoader;
 import com.oscarcommerce.utils.User;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
 
 
 public class ApplicationManager {
@@ -45,6 +47,8 @@ public class ApplicationManager {
     //public static String validUserEmail = PropertiesLoader.loadProperty("validUserEmail");
 
     private static String validUserPwd = PropertiesLoader.loadProperty("validUserPwd");
+
+
 
     User currentUser;
 
@@ -230,6 +234,8 @@ public class ApplicationManager {
                 .takeScreenshot(webDriver);
 
         try {
+//            File F1 = new File(SCREENSHOT_FILE_NAME);
+//            boolean bool = f1.mkdir();
             ImageIO.write(screenshot.getImage(), "png",
                     new File(SCREENSHOT_FILE_NAME.replace("$timestamp", "" + System.currentTimeMillis())));
         } catch (IOException e) {
@@ -250,6 +256,5 @@ public class ApplicationManager {
     public void stopRecording() throws IOException {
         recorder.stop();
     }
-
 
 }

@@ -1,6 +1,7 @@
 Feature: Shopping basket feature
 
 
+
   @wip
   @positive
   Scenario: User adds The shellcoder's handbook to the shopping cart and proceeds to checkout. Order is placed.
@@ -24,22 +25,27 @@ Feature: Shopping basket feature
   @positive
   Scenario: User adds The shellcoder's handbook to the shopping cart. Shopping cart total shows the correct price.
     Given Item container page is opened
-    When Add The shellcoder's handbook to basket qiuck button is clicked
-    Then  The correct price is shown in basket total
+    When Scrolled down to The shellcoder's handbook
+    And Add to basket button is clicked
+    And Basket cart is opened
+    Then The correct price is shown in basket total
 
 
   @wip
   @positive
   Scenario: User adds The shellcoder's handbook to the shopping cart. The pop-up messages displayed are correct.
     Given Item container page is opened
-    When Add The shellcoder's handbook to basket quick button is clicked
-    Then The pop-up message that item has been added to basket is displayed
+    When Add The shellcoder's handbook to basket button is clicked
+    And The pop-up message that item has been added to basket is displayed
     And The pop-up message that basket qualifies for the Deferred benefit offer is displayed
     And The pop-up message that basket total has correct price is displayed
     And Quick Buttons View basket and Checkout now are displayed and clickable
 
   @wip
   Scenario: Increase the quantity of the item from the cart and verify.
+    Given Item container page is opened
+    When The shellcoder's handbook item card is opened
+    And Add The shellcoder's handbook to basket button is clicked
 
   @wip
   Scenario: Add the same item multiple times and verify.
