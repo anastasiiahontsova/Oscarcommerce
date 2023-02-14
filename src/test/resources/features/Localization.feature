@@ -6,7 +6,8 @@ Feature: Localization feature
     Given Main page is opened
     When New language is selected
     And Go button is clicked
-    Then New language is set to all website pages
+    Then New language is set for all website pages
+
 
 
 
