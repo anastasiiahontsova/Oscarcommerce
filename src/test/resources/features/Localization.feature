@@ -2,7 +2,7 @@ Feature: Localization feature
 
   @wip
   @positive
-  Scenario: User changes site language. The language is changed.git
+  Scenario: User changes site language. The language is changed
     Given Main page is opened
     When New language is selected
     And Go button is clicked
