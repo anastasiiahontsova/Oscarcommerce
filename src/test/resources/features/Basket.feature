@@ -21,7 +21,6 @@ Feature: Shopping basket feature
     Then Confirmation page is opened
 
 
-  @wip
   @positive
   Scenario: User adds The shellcoder's handbook to the shopping cart. Shopping cart total shows the correct price.
     Given Item container page is opened
@@ -42,10 +41,14 @@ Feature: Shopping basket feature
     And Quick Buttons View basket and Checkout now are displayed and clickable
 
   @wip
-  Scenario: Increase the quantity of the item from the cart and verify.
+    @positive
+  Scenario: User increases the quantity of the item to 2 items in the cart. Shopping cart total shows the correct price for 2 items.
     Given Item container page is opened
     When The shellcoder's handbook item card is opened
     And Add The shellcoder's handbook to basket button is clicked
+    And Basket cart is opened
+    And Item Quantity is increased to 2 items
+    Then The correct price for 2 items is shown in basket total
 
   @wip
   Scenario: Add the same item multiple times and verify.
