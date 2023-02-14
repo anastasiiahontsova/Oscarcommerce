@@ -13,7 +13,6 @@ Feature: Login feature
       | valid email                    | valid password  |
       | email@gmail.com                | validPassword1! |
       | email1@gmail.com               | validPassword1! |
-      | testemail@gmail.com            | validPassword1! |
       | email@example.com              | validPassword1! |
       | firstname.lastname@example.com | validPassword1! |
       | email@subdomain.example.com    | validPassword1! |
@@ -28,15 +27,12 @@ Feature: Login feature
       | firstname-lastname@example.com | validPassword1! |
 
 
-
-
-    @negative
+  @negative
   Scenario: User logins with both invalid login and password credentials. Error message appears
     Given Login and Registration page is opened
     When Login "nonexistingemail0000@gmail.com" and "invalidPassword" are entered
     And Login button is clicked
     Then Login "Please enter a correct username and password. Note that both fields may be case-sensitive." appears
-
 
 
   @requiresRegistrationWithoutLogIn
@@ -48,12 +44,21 @@ Feature: Login feature
     And Login button is clicked
     Then Login "<error message>" appears
     Examples:
-      | invalid email        | invalid password | error message                                                                              |
-      | testemail1@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | testemail@mail.com   | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | 1testemail@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | testemail@g-mail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | test-email@gmail.com | validPassword1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | invalid email                  | invalid password | error message                                                                              |
+      | EMAIL@GMAIL.COM                | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL1@GMAIL.COM               | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.COM              | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | FIRSTNAME.LASTNAME@EXAMPLE.COM | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@SUBDOMAIN.EXAMPLE.COM    | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | FIRSTNSAME+LASTNAME@EXAMPLE.COM | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@123.123.123.123          | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | 1234567890@EXAMPLE.COM         | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE-ONE.COM          | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | _______@EXAMPLE.COM            | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.NAME             | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.MUSEUM           | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.CO.JP            | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | FIRSTNAME-LASTNAME@EXAMPLE.COM | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
   @requiresRegistrationWithoutLogIn
@@ -76,7 +81,7 @@ Feature: Login feature
   @requiresRegistrationWithoutLogIn
     @loginsAndDeletesUserAccount
     @negative
-  Scenario Outline: User logins with blank credentials. Login alert appears
+  Scenario Outline: User logins with one or both blank credentials. Login alert appears
     Given Login and Registration page is opened
     When Login "<email>" and "<password>" are entered
     And Login button is clicked
