@@ -11,7 +11,6 @@ public class RegistrationHelper extends BaseHelper {
     public static final String REGISTER_BTN_CSS = "button[name='registration_submit']";
     public static final String LOGOUT_BTN_ID = "logout_link";
     public static final String REGISTRATION_PWD_ERROR_MSG_FIELD_XPATH = "//span[@class='error-block'][1]";
-    public static final String EXISTING_USER_ERROR_MSG = "A user with that email address already exists";
 
     public RegistrationHelper(WebDriver webDriver) {
         super(webDriver);

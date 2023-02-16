@@ -115,5 +115,5 @@ Feature: Registration feature
     And Login and Registration page is opened
     And Existing user's credentials for registration are entered
     And Register button is clicked
-    Then Existing user registration error message appears
+    Then "A user with that email address already exists" error message appears
 

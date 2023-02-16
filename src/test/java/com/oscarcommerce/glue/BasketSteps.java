@@ -14,9 +14,9 @@ public class BasketSteps {
         BasketSteps.app = app;
     }
 
-    @Then("The correct price is shown in basket total")
-    public void theCorrectPriceIsShownInBasketTotal() {
-        Assert.assertEquals(app.getBasketHelper().getBasketTotalPrice(), "£9.99", "The Basket total displays the correct price.");
+    @Then("{string} price is shown in basket total")
+    public void theCorrectPriceIsShownInBasketTotal(String priceTotal) {
+        Assert.assertEquals(app.getBasketHelper().getBasketTotalPrice(), priceTotal, "The Basket total displays the correct price.");
     }
 
 
@@ -41,9 +41,10 @@ public class BasketSteps {
         app.getBasketHelper().clickUpdateBtn();
     }
 
-    @Then("The correct price for the items is shown in basket total")
-    public void theCorrectPriceForItemsIsShownInBasketTotal() {
-        Assert.assertEquals(app.getBasketHelper().getBasketTotalPrice(), "£19.98", "The Basket total displays the correct price for 2 items.");
+    @Then("{string} price is shown in basket total")
+    public void priceIsShownInBasketTotal(String priceTotal) {
+        //todo explicit wait
+        Assert.assertEquals(app.getBasketHelper().getBasketTotalPrice(), priceTotal, "The Basket total displays the correct price.");
     }
 
 
@@ -88,8 +89,28 @@ public class BasketSteps {
     }
 
     @And("The pop-up message that item has been added to basket is displayed")
-    public void thePopUpMessageThatItemHasBeenAddedToBasketIsDisplayed() {
+    public void itemHasBeenAddedToBasketIsDisplayed() {
         Assert.assertEquals(app.getItemListContainerHelper().getItemHasBeenAddedMsg(), "×\n" +
                 "The shellcoder's handbook has been added to your basket.", "Item has been added to basket message is present");
     }
+
+    @Then("The pop-up message that basket total has correct price is displayed")
+    public void basketTotalHasCorrectPriceIsDisplayed() {
+        Assert.assertEquals(app.getItemListContainerHelper().getItemHasBeenAddedMsg(), "", "");
+    }
+
+    @And("Enter {string}, {string}, {string}, {string}, {string} into checkout shipping address fields")
+    public void enterIntoCheckoutShippingAddressFields(String name, String lastName, String firstLineAddress, String city, String postcode) {
+        app.getBasketHelper().fillShippingAddressFields(name, lastName, firstLineAddress, city, postcode);
+        app.getCurrentUser().addShippingAddress(name, lastName, firstLineAddress, city, postcode);
+    }
+
+
+//    @Then("Quick Buttons View basket and Checkout now are displayed and clickable")
+//    public void viewBasketAndCheckoutNowBtnAreDisplayed() {
+//        Assert.assertTrue(app.getItemListContainerHelper().elementIsPresent(), "", "");
+//        Assert.assertTrue(app.getItemListContainerHelper().elementIsPresent(), "", "");
+//    }
+
+
 }

@@ -6,15 +6,17 @@ import org.openqa.selenium.WebDriver;
 import static com.oscarcommerce.fw.ApplicationManager.defaultLanguage;
 
 public class ItemListContainerHelper extends BaseHelper {
-    
+
     public static final String ADD_TO_BASKET_BTN_XPATH = "//form[@action='" + defaultLanguage + "/basket/add/209/']";
+    public static final String BOOK_TITLE_XPATH = "//a[@title='$bookTitle']";
 
     public ItemListContainerHelper(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void openItemCard(String bookTitle) {
-        click(By.xpath(bookTitle));
+        scrollToElement(By.xpath(BOOK_TITLE_XPATH.replace("$bookTitle", bookTitle)), 400);
+        click(By.xpath(BOOK_TITLE_XPATH.replace("$bookTitle", bookTitle)));
     }
 
 

@@ -10,7 +10,7 @@ Feature: Shopping basket feature
     And Checkout now quick button is clicked
     And Email address is entered
     And Continue button is clicked
-    And Enter "TestName", "TestLastName", "TestFirstLineAddress", "Berlin", "10587" into shipping address fields
+    And Enter "TestName", "TestLastName", "TestFirstLineAddress", "Berlin", "10587" into checkout shipping address fields
     And Continue button is clicked
     And Enter payment details
     And Continue button is clicked
@@ -25,18 +25,18 @@ Feature: Shopping basket feature
     When Scrolled down to "The shellcoder's handbook"
     And Add to basket button is clicked from item list container
     And View basket button is clicked
-    Then The correct price is shown in basket total
+    Then "£9.99" price is shown in basket total
 
   @wip
   @positive
   Scenario: User increases the quantity of The shellcoder's handbook to 2 items in the shopping cart. Shopping cart total shows the correct price for 2 items.
     Given Item container page is opened
-    When Item card "The shellcoder's handbook" is opened
-    And Add to basket button is clicked from item card
+    When Scrolled down to "The shellcoder's handbook"
+    And Add to basket button is clicked from item list container
     And View basket button is clicked
     And Item Quantity is increased to "2" items
     And Update button is clicked
-    Then The correct price for the items is shown in basket total
+    Then "£19.98" price is shown in basket total
 
 
   @wip

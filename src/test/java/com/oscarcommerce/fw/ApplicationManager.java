@@ -56,6 +56,7 @@ public class ApplicationManager {
     SearchFunctionHelper searchFunctionHelper;
     StoreMenuHelper storeMenuHelper;
     TopPanelHelper topPanelHelper;
+
     public ApplicationManager() {
         baseUrl = System.getProperty("baseUrl", defaultBaseURL);
         browser = System.getProperty("browser", defaultBrowser);

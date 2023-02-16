@@ -8,7 +8,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-import static com.oscarcommerce.fw.RegistrationHelper.EXISTING_USER_ERROR_MSG;
 
 public class RegistrationSteps {
     protected static ApplicationManager app;
@@ -52,13 +51,15 @@ public class RegistrationSteps {
         app.getRegistrationHelper().enterUserRegistrationCredentials(BaseHelper.VALID_EMAIL, BaseHelper.VALID_PASSWORD);
     }
 
-    @Then("Existing user registration error message appears")
-    public void existingUserRegistrationErrorMessageAppears() {
-        Assert.assertEquals(app.getRegistrationHelper().hasPasswordErrorMsg(), EXISTING_USER_ERROR_MSG, "Registration error msg appears");
+    @Then("{string} error message appears")
+    public void errorMessageAppears(String errorMessage) {
+        Assert.assertEquals(app.getRegistrationHelper().hasPasswordErrorMsg(), errorMessage, "Registration error message appears");
     }
 
     @And("User is logged out")
     public void userIsLoggedOut() {
         app.getRegistrationHelper().logOutUser();
     }
+
+
 }

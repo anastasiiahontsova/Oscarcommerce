@@ -2,6 +2,7 @@ package com.oscarcommerce.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,7 +33,7 @@ public class BasketHelper extends BaseHelper {
 
     public void clickUpdateBtn() {
         click(By.xpath(UPDATE_QUANTITY_BTN_XPATH));
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void enterEmail() {
@@ -53,6 +54,16 @@ public class BasketHelper extends BaseHelper {
 
     public boolean verifyConfirmationPageAppears() {
         return elementIsPresent(By.xpath(VIEW_ORDER_STATUS_BTN_XPATH));
+    }
+
+    public void fillShippingAddressFields(String firstName, String lastName, String firstLineAddress, String city, String postcode) {
+        Select country = new Select(webDriver.findElement(By.id("id_country")));
+        clearAndType(By.id("id_first_name"), firstName);
+        clearAndType(By.id("id_last_name"), lastName);
+        clearAndType(By.id("id_line1"), firstLineAddress);
+        clearAndType(By.id("id_line4"), city);
+        clearAndType(By.id("id_postcode"), postcode);
+        country.selectByValue("DE");
     }
 }
 
