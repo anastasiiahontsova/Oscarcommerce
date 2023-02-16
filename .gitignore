@@ -15,9 +15,9 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-/build
-/target
-/.idea
+build
+target
+.idea
 
 
 ### Eclipse ###

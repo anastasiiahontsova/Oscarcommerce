@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         tags = "~@wip",
-        glue = {"src/test/java/com/oscarcommerce/glue"},
+        glue = {"com.oscarcommerce.glue"},
         plugin = {"pretty", "html:target/cucumber.html"}
 )
 

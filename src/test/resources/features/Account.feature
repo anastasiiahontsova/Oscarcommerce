@@ -121,7 +121,8 @@ Feature: Account feature
     Then New address is saved and displayed on user's profile
 
 
-  @requiresRegistrationAndLogin
+
+@requiresRegistrationAndLogin
   @deletesUserAccount
   @negative
   Scenario: User enters invalid postcode when creating a new address in Address Book. Postcode error is displayed.

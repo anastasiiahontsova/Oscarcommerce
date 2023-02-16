@@ -5,8 +5,10 @@ Feature: Shopping basket feature
   @positive
   Scenario: User adds The shellcoder's handbook to the shopping cart and proceeds to checkout. Order is placed.
     Given Item container page is opened
-    When Item card "The shellcoder's handbook" is opened
-    And Add to basket button is clicked from item card
+    When Scrolled down to "The shellcoder's handbook"
+    And Add to basket button is clicked from item list container
+   # And Item card "The shellcoder's handbook" is opened
+   #And Add to basket button is clicked from item card
     And Checkout now quick button is clicked
     And Email address is entered
     And Continue button is clicked

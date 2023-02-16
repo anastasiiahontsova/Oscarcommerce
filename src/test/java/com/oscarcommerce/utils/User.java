@@ -11,9 +11,11 @@ public class User {
     String lastName;
     private ArrayList<ShippingAddress> shippingAddressesList;
 
+
     public User(String pwd) {
-        this.password = pwd;
-        this.email = generateUserEmail();
+        password = pwd;
+        email = generateUserEmail();
+        shippingAddressesList = new ArrayList<ShippingAddress>();
     }
 
     public String getName() {

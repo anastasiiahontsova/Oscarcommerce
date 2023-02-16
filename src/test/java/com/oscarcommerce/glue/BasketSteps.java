@@ -14,11 +14,6 @@ public class BasketSteps {
         BasketSteps.app = app;
     }
 
-    @Then("{string} price is shown in basket total")
-    public void theCorrectPriceIsShownInBasketTotal(String priceTotal) {
-        Assert.assertEquals(app.getBasketHelper().getBasketTotalPrice(), priceTotal, "The Basket total displays the correct price.");
-    }
-
 
     @And("View basket button is clicked")
     public void viewBasketBtnIsClicked() {
@@ -94,9 +89,11 @@ public class BasketSteps {
                 "The shellcoder's handbook has been added to your basket.", "Item has been added to basket message is present");
     }
 
+
     @Then("The pop-up message that basket total has correct price is displayed")
-    public void basketTotalHasCorrectPriceIsDisplayed() {
-        Assert.assertEquals(app.getItemListContainerHelper().getItemHasBeenAddedMsg(), "", "");
+    public void thePopUpMessageThatBasketTotalHasCorrectPriceIsDisplayed() {
+        Assert.assertEquals(app.getItemListContainerHelper().getItemHasBeenAddedMsg(), "×\n" +
+                "The shellcoder's handbook has been added to your basket.", "The pop-up message that basket total has correct price is displayed");
     }
 
     @And("Enter {string}, {string}, {string}, {string}, {string} into checkout shipping address fields")

@@ -70,7 +70,6 @@ public class Hooks {
 
     @After(order = 2)
     public void takeScreenshot() {
-        app.takeScreenShot();
         app.takeScreenshotWithScrollDown();
     }
 
@@ -79,11 +78,10 @@ public class Hooks {
         app.stopApp();
         System.out.println("After is called!");
     }
-
-
-//    @After("@browser and not @headless")
-//    public void doSomethingAfter(Scenario scenario){
-//        scenario.isFailed();
+//    @After(value = "@browser and not @headless", order = 2)
+//    public void takeScreenshotIfFailed(Scenario scenario){
+//        if (scenario.isFailed());
+//        app.takeScreenshotWithScrollDown();
 //    }
 
 

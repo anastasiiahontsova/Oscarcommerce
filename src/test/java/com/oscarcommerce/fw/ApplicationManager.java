@@ -34,8 +34,8 @@ public class ApplicationManager {
     public static String defaultBaseURL = PropertiesLoader.loadProperty("defaultBaseURL");
     public static String defaultBrowser = PropertiesLoader.loadProperty("defaultBrowser");
     public static String defaultLanguage = PropertiesLoader.loadProperty("defaultLanguage");
-    public static String validUserEmail = PropertiesLoader.loadProperty("validUserEmail");
     private static String validUserPwd = PropertiesLoader.loadProperty("validUserPwd");
+    public String localizedBaseUrl;
     //protected EventFiringWebDriver webDriver;
     protected WebDriver webDriver;
     protected String baseUrl;
@@ -61,6 +61,7 @@ public class ApplicationManager {
         baseUrl = System.getProperty("baseUrl", defaultBaseURL);
         browser = System.getProperty("browser", defaultBrowser);
         language = System.getProperty("language", defaultLanguage);
+        localizedBaseUrl = baseUrl + defaultLanguage;
         initApp();
     }
 
@@ -185,7 +186,8 @@ public class ApplicationManager {
     }
 
     public void goToPasswordResetPage() {
-        webDriver.get(baseUrl + defaultLanguage + PWD_RESET_PAGE_PATH);
+
+        webDriver.get(localizedBaseUrl + PWD_RESET_PAGE_PATH);
     }
 
     public void goToAccountPage() {
@@ -198,18 +200,6 @@ public class ApplicationManager {
 
     public void goToItemContainerPage() {
         webDriver.get(baseUrl + defaultLanguage + ITEM_CONTAINER_PAGE_PATH);
-    }
-
-    public String takeScreenShot() {
-        String pathName = "screenshots/" + System.currentTimeMillis() + "png";
-        File tmpScreenshotFile = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
-        File screenShotFile = new File(pathName);
-        try {
-            Files.copy(tmpScreenshotFile, screenShotFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return pathName;
     }
 
     public Screenshot takeScreenshotWithScrollDown() {

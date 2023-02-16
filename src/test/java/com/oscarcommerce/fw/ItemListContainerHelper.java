@@ -15,7 +15,7 @@ public class ItemListContainerHelper extends BaseHelper {
     }
 
     public void openItemCard(String bookTitle) {
-        scrollToElement(By.xpath(BOOK_TITLE_XPATH.replace("$bookTitle", bookTitle)), 400);
+        scrollToElement(By.xpath(BOOK_TITLE_XPATH.replace("$bookTitle", bookTitle)), 200);
         click(By.xpath(BOOK_TITLE_XPATH.replace("$bookTitle", bookTitle)));
     }
 
@@ -25,7 +25,7 @@ public class ItemListContainerHelper extends BaseHelper {
     }
 
     public void scrollToAddToBasketBtn(String bookTitle) {
-        scrollToElement(By.xpath(ADD_TO_BASKET_BTN_XPATH), 400);
+        scrollToElement(By.xpath(ADD_TO_BASKET_BTN_XPATH), 200);
     }
 
     public String getItemHasBeenAddedMsg() {
