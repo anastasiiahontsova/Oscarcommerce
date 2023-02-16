@@ -22,11 +22,12 @@ public class BasketSteps {
 
     @And("Basket cart is opened")
     public void basketCartIsOpened() {
-        app.getBasketHelper().openBasketCart();
+        app.getBasketHelper().openShoppingCart();
     }
 
-    @When("Scrolled down to The shellcoder's handbook")
-    public void scrolledDownToTheShellcoderSHandbook() {
-        app.getItemListContainerHelper().scrollToTheShellcoderSHandbook();
+
+    @When("Scrolled down to {string}")
+    public void scrolledDownTo(String bookTitle) {
+        app.getItemListContainerHelper().scrollToAddToBasketBtn(bookTitle);
     }
 }

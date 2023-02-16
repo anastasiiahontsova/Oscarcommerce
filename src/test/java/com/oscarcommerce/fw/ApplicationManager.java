@@ -44,7 +44,9 @@ public class ApplicationManager {
     public static String defaultBaseURL = PropertiesLoader.loadProperty("defaultBaseURL");
     public static String defaultBrowser = PropertiesLoader.loadProperty("defaultBrowser");
 
-    //public static String validUserEmail = PropertiesLoader.loadProperty("validUserEmail");
+    public static String defaultLanguage = PropertiesLoader.loadProperty("defaultLanguage");
+
+    public static String validUserEmail = PropertiesLoader.loadProperty("validUserEmail");
 
     private static String validUserPwd = PropertiesLoader.loadProperty("validUserPwd");
 
@@ -57,6 +59,8 @@ public class ApplicationManager {
 
     protected String baseUrl;
     protected String browser;
+
+    protected String language;
 
     Recorder recorder;
 
@@ -81,6 +85,7 @@ public class ApplicationManager {
     public ApplicationManager() {
         baseUrl = System.getProperty("baseUrl", defaultBaseURL);
         browser = System.getProperty("browser", defaultBrowser);
+        language = System.getProperty("language", defaultLanguage);
         initApp();
     }
 
@@ -193,23 +198,23 @@ public class ApplicationManager {
     }
 
     public void goToLoginAndRegistrationPage() {
-        webDriver.get(baseUrl + LOGIN_AND_REGISTRATION_PAGE_PATH);
+        webDriver.get(baseUrl + defaultLanguage + LOGIN_AND_REGISTRATION_PAGE_PATH);
     }
 
     public void goToPasswordResetPage() {
-        webDriver.get(baseUrl + PWD_RESET_PAGE_PATH);
+        webDriver.get(baseUrl + defaultLanguage + PWD_RESET_PAGE_PATH);
     }
 
     public void goToAccountPage() {
-        webDriver.get(baseUrl + ACCOUNT_PAGE_PATH);
+        webDriver.get(baseUrl + defaultLanguage + ACCOUNT_PAGE_PATH);
     }
 
     public void goToBasketPage() {
-        webDriver.get(baseUrl + BASKET_PAGE_PATH);
+        webDriver.get(baseUrl + defaultLanguage +BASKET_PAGE_PATH);
     }
 
     public void goToItemContainerPage(){
-        webDriver.get(baseUrl + ITEM_CONTAINER_PAGE_PATH);
+        webDriver.get(baseUrl + defaultLanguage + ITEM_CONTAINER_PAGE_PATH);
     }
 
     public String takeScreenShot() {
@@ -234,8 +239,6 @@ public class ApplicationManager {
                 .takeScreenshot(webDriver);
 
         try {
-//            File F1 = new File(SCREENSHOT_FILE_NAME);
-//            boolean bool = f1.mkdir();
             ImageIO.write(screenshot.getImage(), "png",
                     new File(SCREENSHOT_FILE_NAME.replace("$timestamp", "" + System.currentTimeMillis())));
         } catch (IOException e) {

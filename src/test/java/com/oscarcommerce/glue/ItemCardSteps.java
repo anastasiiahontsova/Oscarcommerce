@@ -11,7 +11,7 @@ public class ItemCardSteps {
         ItemCardSteps.app = app;
     }
 
-    @And("Add The shellcoder's handbook to basket button is clicked")
+    @And("Add to basket button is clicked from item card")
     public void addTheShellcoderSHandbookToBasketButtonIsClicked() {
         app.getItemCardHelper().clickAddToBasketBtn();
     }

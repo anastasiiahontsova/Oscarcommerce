@@ -30,9 +30,8 @@ Feature: Account feature
     Given Account page is opened
     And Profile page is visible
     And Edit profile button is clicked
-    And First name field is entered
-    And Last name field is entered
-    And Email address is changed
+    And Firstname "TestName" and lastname "TestLastName" are entered
+    And "edited.email@gmail.com" email is entered
     And Cancel button is clicked
     Then All changes are not saved
 

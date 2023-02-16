@@ -12,7 +12,7 @@ public class BasketHelper extends BaseHelper {
         return getText(By.xpath("//span[contains(text(), 'Total:')]"));
     }
 
-    public void openBasketCart() {
+    public void openShoppingCart() {
         click(By.xpath("//button[@class='btn btn-outline-secondary']"));
     }
 

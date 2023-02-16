@@ -84,7 +84,7 @@ public class AccountSteps {
 
     @Then("All changes are not saved")
     public void allChangesAreNotSaved()  {
-        ShippingAddress expectedProfileName = app.getCurrentUser().getShippingAddress();
+        ShippingAddress expectedProfileName = app.getCurrentUser().getShippingAddresses(0);
         Assert.assertEquals(app.getAccountHelper().getProfileNameText(), expectedProfileName.getName() + " " + expectedProfileName.getLastName());
         Assert.assertEquals(app.getAccountHelper().getProfileEmail(), app.getCurrentUser().getEmail(), "Updated profile email is correct");
     }
@@ -162,7 +162,7 @@ public class AccountSteps {
 
     @Then("New address is saved and displayed on user's profile")
     public void newAddressIsSaved() {
-        ShippingAddress expectedShippingAddress = app.getCurrentUser().getShippingAddress();
+        ShippingAddress expectedShippingAddress = app.getCurrentUser().getShippingAddresses(0);
         Assert.assertEquals(app.getAccountHelper().getShippingAddressInfo(), expectedShippingAddress.getName()
                 + " " + expectedShippingAddress.getLastName()
                 + " " + expectedShippingAddress.getFirstLineAddress()

@@ -40,7 +40,7 @@ public class Hooks {
 
 
 
-    @After(value = "@loginsAndDeletesUserAccount", order = 4)
+    @After(value = "@loginsAndDeletesUserAccount", order = 5)
     public void loginAndDeleteUserAccount() {
         app.goToLoginAndRegistrationPage();
         app.getLoginHelper().enterLoginEmail(app.getCurrentUser().getEmail());
@@ -51,14 +51,14 @@ public class Hooks {
         System.out.println("Account is deleted");
     }
 
-    @After(value = "@deletesUserAccount", order = 3)
+    @After(value = "@deletesUserAccount", order = 4)
     public void deleteUserAccount() {
         app.goToAccountPage();
         app.getAccountHelper().deleteUserAccount();
         System.out.println("Account is deleted");
     }
 
-    @After(value = "@deletesExistingUserAccount", order = 2)
+    @After(value = "@deletesExistingUserAccount", order = 3)
     public void deleteExistingUserAccount() {
         app.goToLoginAndRegistrationPage();
         app.getLoginHelper().enterLoginEmail(BaseHelper.VALID_EMAIL);
@@ -69,7 +69,11 @@ public class Hooks {
         System.out.println("Account is deleted");
     }
 
-
+    @After(order = 2)
+    public void takeScreenshot() {
+        app.takeScreenShot();
+        app.takeScreenshotWithScrollDown();
+    }
     @After(order = 1)
     public void closeApp() {
         app.stopApp();
@@ -82,10 +86,6 @@ public class Hooks {
 //        scenario.isFailed();
 //    }
 
-//        @After(order = 0)
-//    public void takeScreenshot() {
-//        app.takeScreenShot();
-//        app.takeScreenshotWithScrollDown();
-//    }
+
 
 }

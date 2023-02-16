@@ -1,15 +1,11 @@
 package com.oscarcommerce.utils;
 
+import java.util.ArrayList;
+
 public class User {
 
-    private ShippingAddress shippingAddress;
 
-    public ShippingAddress getShippingAddress() {
-        return shippingAddress;
-    }
-    public void addShippingAddress(String name, String lastName, String firstLineAddress, String city, String postcode){
-        shippingAddress = new ShippingAddress(name, lastName, firstLineAddress, city, postcode);
-    }
+    private ArrayList <ShippingAddress> shippingAddressesList;
 
     String email;
     String password;
@@ -34,10 +30,13 @@ public class User {
         return lastName;
     }
 
+    public void addShippingAddress(String name, String lastName, String firstLineAddress, String city, String postcode){
+        shippingAddressesList.add(new ShippingAddress(name, lastName, firstLineAddress, city, postcode));
+    }
 
-
-
-
+    public ShippingAddress getShippingAddresses(int idx) {
+        return shippingAddressesList.get(idx);
+    }
     public User(String pwd) {
         this.password = pwd;
         this.email = generateUserEmail();

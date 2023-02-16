@@ -17,6 +17,7 @@ out/
 !**/src/test/**/out/
 /build
 /target
+/.idea
 
 
 ### Eclipse ###
