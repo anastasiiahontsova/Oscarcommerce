@@ -43,7 +43,7 @@ public class LoginSteps {
         app.getLoginHelper().checkForLogOutBtn();
     }
 
-    @Then("Login {string} appears")
+    @Then("{string} appears")
     public void loginErrorMessage(String expectedText) {
         Assert.assertEquals(app.getLoginHelper().hasLoginErrorMsg(), expectedText, "Login error message appears");
     }

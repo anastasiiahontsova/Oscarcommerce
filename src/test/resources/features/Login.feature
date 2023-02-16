@@ -32,7 +32,7 @@ Feature: Login feature
     Given Login and Registration page is opened
     When Login "nonexistingemail0000@gmail.com" and "invalidPassword" are entered
     And Login button is clicked
-    Then Login "Please enter a correct username and password. Note that both fields may be case-sensitive." appears
+    Then "Please enter a correct username and password. Note that both fields may be case-sensitive." appears
 
 
   @requiresRegistrationWithoutLogIn
@@ -42,7 +42,7 @@ Feature: Login feature
     Given Login and Registration page is opened
     When Login "<invalid email>" and "<invalid password>" are entered
     And Login button is clicked
-    Then Login "<error message>" appears
+    Then "<error message>" appears
     Examples:
       | invalid email                   | invalid password | error message                                                                              |
       | EMAIL@GMAIL.COM                 | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
@@ -68,7 +68,7 @@ Feature: Login feature
     Given Login and Registration page is opened
     When Login "<valid email>" and "<invalid password>" are entered
     And Login button is clicked
-    Then Login "<error message>" appears
+    Then "<error message>" appears
     Examples:
       | valid email         | invalid password | error message                                                                              |
       | testemail@gmail.com | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
