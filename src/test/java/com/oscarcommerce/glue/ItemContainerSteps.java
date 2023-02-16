@@ -2,13 +2,12 @@ package com.oscarcommerce.glue;
 
 import com.oscarcommerce.fw.ApplicationManager;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 
 public class ItemContainerSteps {
 
     protected static ApplicationManager app;
 
-    public ItemContainerSteps(ApplicationManager app){
+    public ItemContainerSteps(ApplicationManager app) {
         ItemContainerSteps.app = app;
     }
 
@@ -16,7 +15,6 @@ public class ItemContainerSteps {
     public void itemContainerPageIsOpened() {
         app.goToItemContainerPage();
     }
-
 
 
 }

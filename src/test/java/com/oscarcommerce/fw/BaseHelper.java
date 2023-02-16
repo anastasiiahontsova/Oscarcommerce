@@ -16,6 +16,7 @@ public class BaseHelper {
     private static final Duration FIVE_SECONDS_WAIT = Duration.ofSeconds(5);
     private static final Duration TEN_SECONDS_WAIT = Duration.ofSeconds(10);
     protected WebDriver webDriver;
+
     public BaseHelper(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
@@ -104,7 +105,7 @@ public class BaseHelper {
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-    public void waitForAlertDuration(int timeOutInSeconds) {
+    public void waitForAlert(int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeOutInSeconds));
         wait.until(ExpectedConditions.alertIsPresent());
     }

@@ -48,7 +48,7 @@ public class AccountHelper extends BaseHelper {
         waitForElementToBeVisible(By.id(DELETE_PROFILE_BTN_ID));
     }
 
-    public String getProfileNameText()  {
+    public String getProfileNameText() {
         return webDriver.findElement(By.xpath(PROFILE_NAME_TABLE_FIELD_XPATH)).getText();
     }
 
@@ -188,7 +188,7 @@ public class AccountHelper extends BaseHelper {
 
     public boolean getANewWishListBtnSize() {
         List<WebElement> createNewWishBtnSize = webDriver.findElements(By.xpath(CREATE_NEW_WISH_LIST_BTN_XPATH));
-        if (createNewWishBtnSize.size() == 1);
+        if (createNewWishBtnSize.size() == 1) ;
         return true;
     }
 }

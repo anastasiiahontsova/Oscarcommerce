@@ -1,14 +1,8 @@
 package com.oscarcommerce.fw;
 
-import dev.failsafe.internal.TimeoutImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.Time;
-import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 public class BasketHelper extends BaseHelper {
@@ -36,7 +30,7 @@ public class BasketHelper extends BaseHelper {
         clearAndType(By.id(ITEM_QUANTITY_FIELD_ID), itemNumber);
     }
 
-    public void clickUpdateBtn(){
+    public void clickUpdateBtn() {
         click(By.xpath(UPDATE_QUANTITY_BTN_XPATH));
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }

@@ -39,7 +39,6 @@ public class Hooks {
     }
 
 
-
     @After(value = "@loginsAndDeletesUserAccount", order = 5)
     public void loginAndDeleteUserAccount() {
         app.goToLoginAndRegistrationPage();
@@ -74,6 +73,7 @@ public class Hooks {
         app.takeScreenShot();
         app.takeScreenshotWithScrollDown();
     }
+
     @After(order = 1)
     public void closeApp() {
         app.stopApp();
@@ -85,7 +85,6 @@ public class Hooks {
 //    public void doSomethingAfter(Scenario scenario){
 //        scenario.isFailed();
 //    }
-
 
 
 }

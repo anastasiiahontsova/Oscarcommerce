@@ -32,7 +32,8 @@ public class AccountSteps {
 
     @Then("Profile email matches the registered one")
     public void profileEmailCoincidesWithTheRegisteredOne() {
-        Assert.assertEquals(app.getAccountHelper().getUserEmailIsCorrectInProfile(), app.getCurrentUser().getEmail(), "The email coincides with the one in the profile");;
+        Assert.assertEquals(app.getAccountHelper().getUserEmailIsCorrectInProfile(), app.getCurrentUser().getEmail(), "The email coincides with the one in the profile");
+        ;
     }
 
     @And("Delete profile button is clicked")
@@ -83,7 +84,7 @@ public class AccountSteps {
     }
 
     @Then("All changes are not saved")
-    public void allChangesAreNotSaved()  {
+    public void allChangesAreNotSaved() {
         ShippingAddress expectedProfileName = app.getCurrentUser().getShippingAddresses(0);
         Assert.assertEquals(app.getAccountHelper().getProfileNameText(), expectedProfileName.getName() + " " + expectedProfileName.getLastName());
         Assert.assertEquals(app.getAccountHelper().getProfileEmail(), app.getCurrentUser().getEmail(), "Updated profile email is correct");
@@ -164,10 +165,10 @@ public class AccountSteps {
     public void newAddressIsSaved() {
         ShippingAddress expectedShippingAddress = app.getCurrentUser().getShippingAddresses(0);
         Assert.assertEquals(app.getAccountHelper().getShippingAddressInfo(), expectedShippingAddress.getName()
-                + " " + expectedShippingAddress.getLastName()
-                + " " + expectedShippingAddress.getFirstLineAddress()
-                + " " + expectedShippingAddress.getCity()
-                + " " + expectedShippingAddress.getPostcode(),
+                        + " " + expectedShippingAddress.getLastName()
+                        + " " + expectedShippingAddress.getFirstLineAddress()
+                        + " " + expectedShippingAddress.getCity()
+                        + " " + expectedShippingAddress.getPostcode(),
                 "Current shipping name is: " + expectedShippingAddress.getName()
                         + " " + expectedShippingAddress.getLastName()
                         + " " + expectedShippingAddress.getFirstLineAddress()

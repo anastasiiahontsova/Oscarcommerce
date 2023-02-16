@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import static com.oscarcommerce.fw.ApplicationManager.defaultLanguage;
 
 public class ItemListContainerHelper extends BaseHelper {
-
-    public static final String BOOK_THE_SHELLCODERS_HANDBOOK_XPATH = "//a[@href='" + defaultLanguage + "/catalogue/the-shellcoders-handbook_209/']";
+    
     public static final String ADD_TO_BASKET_BTN_XPATH = "//form[@action='" + defaultLanguage + "/basket/add/209/']";
 
     public ItemListContainerHelper(WebDriver webDriver) {
@@ -15,7 +14,7 @@ public class ItemListContainerHelper extends BaseHelper {
     }
 
     public void openItemCard(String bookTitle) {
-        click(By.xpath(BOOK_THE_SHELLCODERS_HANDBOOK_XPATH));
+        click(By.xpath(bookTitle));
     }
 
 

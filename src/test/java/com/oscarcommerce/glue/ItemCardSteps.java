@@ -7,7 +7,7 @@ public class ItemCardSteps {
 
     public static ApplicationManager app;
 
-    public ItemCardSteps(ApplicationManager app){
+    public ItemCardSteps(ApplicationManager app) {
         ItemCardSteps.app = app;
     }
 

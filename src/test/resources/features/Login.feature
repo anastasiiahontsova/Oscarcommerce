@@ -44,21 +44,21 @@ Feature: Login feature
     And Login button is clicked
     Then Login "<error message>" appears
     Examples:
-      | invalid email                  | invalid password | error message                                                                              |
-      | EMAIL@GMAIL.COM                | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL1@GMAIL.COM               | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@EXAMPLE.COM              | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | FIRSTNAME.LASTNAME@EXAMPLE.COM | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@SUBDOMAIN.EXAMPLE.COM    | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | invalid email                   | invalid password | error message                                                                              |
+      | EMAIL@GMAIL.COM                 | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL1@GMAIL.COM                | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.COM               | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | FIRSTNAME.LASTNAME@EXAMPLE.COM  | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@SUBDOMAIN.EXAMPLE.COM     | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
       | FIRSTNSAME+LASTNAME@EXAMPLE.COM | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@123.123.123.123          | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | 1234567890@EXAMPLE.COM         | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@EXAMPLE-ONE.COM          | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | _______@EXAMPLE.COM            | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@EXAMPLE.NAME             | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@EXAMPLE.MUSEUM           | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | EMAIL@EXAMPLE.CO.JP            | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
-      | FIRSTNAME-LASTNAME@EXAMPLE.COM | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@123.123.123.123           | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | 1234567890@EXAMPLE.COM          | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE-ONE.COM           | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | _______@EXAMPLE.COM             | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.NAME              | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.MUSEUM            | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | EMAIL@EXAMPLE.CO.JP             | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
+      | FIRSTNAME-LASTNAME@EXAMPLE.COM  | VALIDPASSWORD1!  | Please enter a correct username and password. Note that both fields may be case-sensitive. |
 
 
   @requiresRegistrationWithoutLogIn

@@ -8,7 +8,7 @@ public class ItemListContainerSteps {
 
     public static ApplicationManager app;
 
-    public ItemListContainerSteps(ApplicationManager app){
+    public ItemListContainerSteps(ApplicationManager app) {
         ItemListContainerSteps.app = app;
     }
 

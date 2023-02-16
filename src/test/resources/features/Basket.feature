@@ -1,7 +1,6 @@
 Feature: Shopping basket feature
 
 
-
   @wip
   @positive
   Scenario: User adds The shellcoder's handbook to the shopping cart and proceeds to checkout. Order is placed.
@@ -49,7 +48,6 @@ Feature: Shopping basket feature
     Then The pop-up message that item has been added to basket is displayed
 
 
-
   Scenario: User adds The shellcoder's handbook to the shopping cart. The pop-up messages displayed are correct.
     Given Item container page is opened
     When Scrolled down to "The shellcoder's handbook"
@@ -65,31 +63,31 @@ Feature: Shopping basket feature
 
 
   @wip
-    @positive
+  @positive
   Scenario: Add the same item multiple times and verify.
 
   @wip
-    @positive
+  @positive
   Scenario: Add multiple items of different types and verify.
 
   @wip
-    @positive
+  @positive
   Scenario: Remove some items from the cart and verify.
 
   @wip
-    @positive
+  @positive
   Scenario: Remove all items from the cart and then verify.
 
   @wip
-    @positive
+  @positive
   Scenario: Click on an item in the cart and verify that the user is redirected to the product detail page.
 
   @wip
-    @positive
+  @positive
   Scenario: Check that the price of the cart is discounted when we apply a valid coupon.
 
   @wip
-    @positive
+  @positive
   Scenario: Check that the price of the cart is not discounted when we apply an invalid coupon.
 
   @wip

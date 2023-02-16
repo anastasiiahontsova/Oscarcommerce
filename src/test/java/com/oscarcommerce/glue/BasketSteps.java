@@ -4,7 +4,6 @@ import com.oscarcommerce.fw.ApplicationManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class BasketSteps {
@@ -65,7 +64,7 @@ public class BasketSteps {
 
     @And("Continue to Preview order button is clicked")
     public void continueToPreviewOrderButtonIsClicked() {
-        
+
     }
 
     @And("Enter payment details")

@@ -3,7 +3,6 @@ package com.oscarcommerce.fw;
 import com.google.common.io.Files;
 import com.oscarcommerce.utils.PropertiesLoader;
 import com.oscarcommerce.utils.User;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -24,46 +23,26 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
-
 public class ApplicationManager {
-
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
 
     public static final String BASKET_PAGE_PATH = "/basket/";
     public static final String ITEM_CONTAINER_PAGE_PATH = "/catalogue/";
-
     public static final String LOGIN_AND_REGISTRATION_PAGE_PATH = "/accounts/login";
-
     public static final String PWD_RESET_PAGE_PATH = "/password-reset/";
     private static final String SCREENSHOT_FILE_NAME = "target/screenshots/$timestamp_screenshot.png";
     private static final String ACCOUNT_PAGE_PATH = "/accounts/profile/";
-
     public static String defaultBaseURL = PropertiesLoader.loadProperty("defaultBaseURL");
     public static String defaultBrowser = PropertiesLoader.loadProperty("defaultBrowser");
-
     public static String defaultLanguage = PropertiesLoader.loadProperty("defaultLanguage");
-
     public static String validUserEmail = PropertiesLoader.loadProperty("validUserEmail");
-
     private static String validUserPwd = PropertiesLoader.loadProperty("validUserPwd");
-
-
-
-    User currentUser;
-
     //protected EventFiringWebDriver webDriver;
     protected WebDriver webDriver;
-
     protected String baseUrl;
     protected String browser;
-
     protected String language;
-
+    User currentUser;
     Recorder recorder;
-
     AccountHelper accountHelper;
     BasketHelper basketHelper;
     BrowseStoreMenuHelper browseStoreMenuHelper;
@@ -77,16 +56,19 @@ public class ApplicationManager {
     SearchFunctionHelper searchFunctionHelper;
     StoreMenuHelper storeMenuHelper;
     TopPanelHelper topPanelHelper;
-
-    //public ApplicationManager(String browser) {
-    //    this.browser = browser;
-    //}
-
     public ApplicationManager() {
         baseUrl = System.getProperty("baseUrl", defaultBaseURL);
         browser = System.getProperty("browser", defaultBrowser);
         language = System.getProperty("language", defaultLanguage);
         initApp();
+    }
+
+    //public ApplicationManager(String browser) {
+    //    this.browser = browser;
+    //}
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 
     public AccountHelper getAccountHelper() {
@@ -210,10 +192,10 @@ public class ApplicationManager {
     }
 
     public void goToBasketPage() {
-        webDriver.get(baseUrl + defaultLanguage +BASKET_PAGE_PATH);
+        webDriver.get(baseUrl + defaultLanguage + BASKET_PAGE_PATH);
     }
 
-    public void goToItemContainerPage(){
+    public void goToItemContainerPage() {
         webDriver.get(baseUrl + defaultLanguage + ITEM_CONTAINER_PAGE_PATH);
     }
 
