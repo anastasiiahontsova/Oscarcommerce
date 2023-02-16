@@ -48,14 +48,14 @@ Feature: Shopping basket feature
     Then The pop-up message that item has been added to basket is displayed
 
 
-  Scenario: User adds The shellcoder's handbook to the shopping cart. The pop-up messages displayed are correct.
+  Scenario: User adds The shellcoder's handbook to the shopping cart. Basket total pop-up message is correct.
     Given Item container page is opened
     When Scrolled down to "The shellcoder's handbook"
     And Add to basket button is clicked from item list container
     Then The pop-up message that basket total has correct price is displayed
 
 
-  Scenario: User adds The shellcoder's handbook to the shopping cart. The pop-up messages displayed are correct.
+  Scenario: User adds The shellcoder's handbook to the shopping cart. View basket and Checkout now buttons are present.
     Given Item container page is opened
     When Scrolled down to "The shellcoder's handbook"
     And Add to basket button is clicked from item list container
