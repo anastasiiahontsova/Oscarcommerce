@@ -9,16 +9,15 @@ Feature: Shopping basket feature
     When Item card "The shellcoder's handbook" is opened
     And Add to basket button is clicked from item card
     And Checkout now quick button is clicked
-    And Enter email address page is opened
     And Email address is entered
-    And Enter shipping address page is opened
+    And Continue button is clicked
     And Enter "TestName", "TestLastName", "TestFirstLineAddress", "Berlin", "10587" into shipping address fields
-    And Continue to Payment details page button is clicked
-    And Enter payment details page is opened
-    And Continue to Preview order button is clicked
+    And Continue button is clicked
+    And Enter payment details
+    And Continue button is clicked
     And Preview order page is opened
     And Place order button is clicked
-    Then Confirmation page is opened
+    Then Confirmation page appears
 
 
   @positive
@@ -26,30 +25,44 @@ Feature: Shopping basket feature
     Given Item container page is opened
     When Scrolled down to "The shellcoder's handbook"
     And Add to basket button is clicked from item list container
-    And Basket cart is opened
+    And View basket button is clicked
     Then The correct price is shown in basket total
+
+  @wip
+  @positive
+  Scenario: User increases the quantity of The shellcoder's handbook to 2 items in the shopping cart. Shopping cart total shows the correct price for 2 items.
+    Given Item container page is opened
+    When Item card "The shellcoder's handbook" is opened
+    And Add to basket button is clicked from item card
+    And View basket button is clicked
+    And Item Quantity is increased to "2" items
+    And Update button is clicked
+    Then The correct price for the items is shown in basket total
 
 
   @wip
   @positive
+  Scenario: User adds The shellcoder's handbook to the shopping cart. Item has been added to basket message is present.
+    Given Item container page is opened
+    When Scrolled down to "The shellcoder's handbook"
+    And Add to basket button is clicked from item list container
+    Then The pop-up message that item has been added to basket is displayed
+
+
+
   Scenario: User adds The shellcoder's handbook to the shopping cart. The pop-up messages displayed are correct.
     Given Item container page is opened
     When Scrolled down to "The shellcoder's handbook"
     And Add to basket button is clicked from item list container
-    And The pop-up message that item has been added to basket is displayed
-    And The pop-up message that basket qualifies for the Deferred benefit offer is displayed
-    And The pop-up message that basket total has correct price is displayed
-    And Quick Buttons View basket and Checkout now are displayed and clickable
+    Then The pop-up message that basket total has correct price is displayed
 
-  @wip
-    @positive
-  Scenario: User increases the quantity of the item to 2 items in the cart. Shopping cart total shows the correct price for 2 items.
+
+  Scenario: User adds The shellcoder's handbook to the shopping cart. The pop-up messages displayed are correct.
     Given Item container page is opened
-    When Item card "The shellcoder's handbook" is opened
-    And Add to basket button is clicked from item card
-    And Basket cart is opened
-    And Item Quantity is increased to 2 items
-    Then The correct price for 2 items is shown in basket total
+    When Scrolled down to "The shellcoder's handbook"
+    And Add to basket button is clicked from item list container
+    Then Quick Buttons View basket and Checkout now are displayed and clickable
+
 
   @wip
     @positive

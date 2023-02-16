@@ -18,7 +18,7 @@ public class ItemListContainerSteps {
         app.getItemListContainerHelper().openItemCard(bookTitle);
     }
 
-    @And("Add to basket button is clicked")
+    @And("Add to basket button is clicked from item list container")
     public void addToBasketButtonIsClicked() {
         app.getItemListContainerHelper().clickAddToBasketBtn();
     }

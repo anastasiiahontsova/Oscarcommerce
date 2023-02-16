@@ -8,6 +8,7 @@ import static com.oscarcommerce.fw.ApplicationManager.defaultLanguage;
 public class ItemListContainerHelper extends BaseHelper {
 
     public static final String BOOK_THE_SHELLCODERS_HANDBOOK_XPATH = "//a[@href='" + defaultLanguage + "/catalogue/the-shellcoders-handbook_209/']";
+    public static final String ADD_TO_BASKET_BTN_XPATH = "//form[@action='" + defaultLanguage + "/basket/add/209/']";
 
     public ItemListContainerHelper(WebDriver webDriver) {
         super(webDriver);
@@ -19,10 +20,14 @@ public class ItemListContainerHelper extends BaseHelper {
 
 
     public void clickAddToBasketBtn() {
-        click(By.xpath("//form[@action='" + defaultLanguage + "/basket/add/209/']+//"));
+        click(By.xpath(ADD_TO_BASKET_BTN_XPATH));
     }
 
     public void scrollToAddToBasketBtn(String bookTitle) {
-        scrollToElement(By.xpath("//form[@action='" + defaultLanguage + "/basket/add/209/']"), 400);
+        scrollToElement(By.xpath(ADD_TO_BASKET_BTN_XPATH), 400);
+    }
+
+    public String getItemHasBeenAddedMsg() {
+        return getText(By.xpath("//div[@class='alert alert-dismissible alert-safe alert-noicon alert-success  fade show']"));
     }
 }
